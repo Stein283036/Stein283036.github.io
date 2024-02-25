@@ -4,33 +4,6 @@
   
   
   <entry>
-    <title>Thread</title>
-    <link href="/2024/02/25/Thread/"/>
-    <url>/2024/02/25/Thread/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Thread-in-Java"><a href="#Thread-in-Java" class="headerlink" title="Thread in Java"></a>Thread in Java</h1><h2 id="What-is-a-Thread"><a href="#What-is-a-Thread" class="headerlink" title="What is a Thread"></a>What is a Thread</h2><p>一个线程是完成一个特定任务的操作系统线程</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Tech</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Java</tag>
-      
-      <tag>JUC</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Hello World</title>
     <link href="/2024/02/25/hello-world/"/>
     <url>/2024/02/25/hello-world/</url>
