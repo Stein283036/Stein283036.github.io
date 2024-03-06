@@ -16,22 +16,22 @@
   <meta name="author" content="倪京龙">
   <meta name="keywords" content="Technology,Life,Programming,Java,JavaScript,System Design,MySQL,Spring,倪京龙,Linux">
   
-    <meta name="description" content="IntroductionES6 提供了一个称为解构赋值的新功能，将对象的属性或数组的元素解构为单独的变量。 ES 5 old-school style在 ES 5 及以前，要想将数组的元素或对象的属性赋值给单独的变量需要使用以下语法： Array1234const scores &#x3D; [70, 80, 90]let x &#x3D; scores[0],  y &#x3D; scores[1],  z &#x3D; scores">
+    <meta name="description" content="Introduction to the JavaScript spread operatorES6 提供了一个新的运算符，称为展开运算符，它由三个点 (…) 组成。展开运算符扩展可迭代对象（例如数组、映射或集合）的元素。 123const odd &#x3D; [1, 3, 5]const combined &#x3D; [2, 4, 6, ...odd]console.log(combined) &#x2F;&#x2F; [ 2, 4">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6 Destructuring">
-<meta property="og:url" content="https://stein283036.github.io/2024/03/06/ES6-Destructuring/">
+<meta property="og:title" content="JavaScript Spread Operator">
+<meta property="og:url" content="https://stein283036.github.io/2024/03/06/JavaScript-Spread-Operator/">
 <meta property="og:site_name" content="倪京龙的个人博客">
-<meta property="og:description" content="IntroductionES6 提供了一个称为解构赋值的新功能，将对象的属性或数组的元素解构为单独的变量。 ES 5 old-school style在 ES 5 及以前，要想将数组的元素或对象的属性赋值给单独的变量需要使用以下语法： Array1234const scores &#x3D; [70, 80, 90]let x &#x3D; scores[0],  y &#x3D; scores[1],  z &#x3D; scores">
+<meta property="og:description" content="Introduction to the JavaScript spread operatorES6 提供了一个新的运算符，称为展开运算符，它由三个点 (…) 组成。展开运算符扩展可迭代对象（例如数组、映射或集合）的元素。 123const odd &#x3D; [1, 3, 5]const combined &#x3D; [2, 4, 6, ...odd]console.log(combined) &#x2F;&#x2F; [ 2, 4">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-06T09:59:01.000Z">
-<meta property="article:modified_time" content="2024-03-06T12:02:20.977Z">
+<meta property="article:published_time" content="2024-03-06T11:55:21.000Z">
+<meta property="article:modified_time" content="2024-03-06T11:55:43.703Z">
 <meta property="article:author" content="倪京龙">
-<meta property="article:tag" content="ES6">
+<meta property="article:tag" content="ES 6">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>ES6 Destructuring - 倪京龙的个人博客</title>
+  <title>JavaScript Spread Operator - 倪京龙的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -238,7 +238,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="ES6 Destructuring"></span>
+            <span id="subtitle" data-typed-text="JavaScript Spread Operator"></span>
           
         </div>
 
@@ -249,8 +249,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-06 17:59" pubdate>
-          2024年3月6日 下午
+        <time datetime="2024-03-06 19:55" pubdate>
+          2024年3月6日 晚上
         </time>
       </span>
     
@@ -261,7 +261,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          535 字
+          556 字
         
       </span>
     
@@ -317,7 +317,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">ES6 Destructuring</h1>
+            <h1 id="seo-header">JavaScript Spread Operator</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
@@ -330,37 +330,49 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>ES6 提供了一个称为解构赋值的新功能，将对象的属性或数组的元素解构为单独的变量。</p>
-<h2 id="ES-5-old-school-style"><a href="#ES-5-old-school-style" class="headerlink" title="ES 5 old-school style"></a>ES 5 old-school style</h2><p>在 ES 5 及以前，要想将数组的元素或对象的属性赋值给单独的变量需要使用以下语法：</p>
-<h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">90</span>]<br><span class="hljs-keyword">let</span> x = scores[<span class="hljs-number">0</span>],<br>  y = scores[<span class="hljs-number">1</span>],<br>  z = scores[<span class="hljs-number">2</span>]<br></code></pre></td></tr></table></figure>
+                <h2 id="Introduction-to-the-JavaScript-spread-operator"><a href="#Introduction-to-the-JavaScript-spread-operator" class="headerlink" title="Introduction to the JavaScript spread operator"></a>Introduction to the JavaScript spread operator</h2><p>ES6 提供了一个新的运算符，称为展开运算符，它由三个点 (…) 组成。展开运算符扩展可迭代对象（例如数组、映射或集合）的元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> odd = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>]<br><span class="hljs-keyword">const</span> combined = [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, ...odd]<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(combined) <span class="hljs-comment">// [ 2, 4, 6, 1, 3, 5 ]</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> user = &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;stein&#x27;</span>,<br>  <span class="hljs-attr">age</span>: <span class="hljs-number">23</span>,<br>&#125;<br><br><span class="hljs-keyword">let</span> name = user.<span class="hljs-property">name</span><br><span class="hljs-keyword">let</span> age = user.<span class="hljs-property">age</span><br></code></pre></td></tr></table></figure>
+<p>位于奇数数组前面的三个点 (…) 是展开运算符。展开运算符 (…) 解包（unpack）奇数数组的元素。</p>
+<blockquote>
+<p>ES6 还具有三个点 (…)，这是一个 rest parameter，它将函数的所有剩余参数收集到一个数组中。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">a, b, ...args</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(args)<br>&#125;<br><br><span class="hljs-title function_">f</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>) <span class="hljs-comment">// [ 3, 4, 5 ]</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="Array-Destructuring"><a href="#Array-Destructuring" class="headerlink" title="Array Destructuring"></a>Array Destructuring</h2><p>从 ES 6 开始，可以使用如下的语法进行数组解构赋值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">90</span>]<br><span class="hljs-keyword">let</span> [x, y, z] = scores<br></code></pre></td></tr></table></figure>
+<p>因此，三个点 (…) 同时表示 spread operator 和 rest parameter。</p>
+<p>主要区别：</p>
+<ul>
+<li>spread operator 解包 <strong>可迭代对象（iterable object）</strong>的元素。</li>
+<li>rest parameter 将元素打包到数组中。</li>
+</ul>
+<p>rest parameter 必须是函数的最后一个参数。然而，扩展运算符可以在任何地方：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> odd = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>]<br><span class="hljs-keyword">const</span> combined = [...odd, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>]<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(combined) <span class="hljs-comment">// [ 1, 3, 5, 2, 4, 6 ]</span><br><br><span class="hljs-keyword">const</span> odd = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>]<br><span class="hljs-keyword">const</span> combined = [<span class="hljs-number">2</span>, ...odd, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>]<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(combined) <span class="hljs-comment">// [2, 1, 3, 5, 4, 6]</span><br></code></pre></td></tr></table></figure>
 
-<p>如果 <code>scores</code> 数组只有两个值，那么变量 <code>z</code> 将会被赋值为 <code>undefined</code>，如果 <code>scores</code> 数组的元素长度大于 3，那么多余的元素将会被丢弃。</p>
-<h3 id="Array-Destructuring-Assignment-and-Rest-syntax"><a href="#Array-Destructuring-Assignment-and-Rest-syntax" class="headerlink" title="Array Destructuring Assignment and Rest syntax"></a>Array Destructuring Assignment and Rest syntax</h3><p>可以使用 rest parameter (…) 将数组的所有剩余元素全部添加到一个新的数组中。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">90</span>, <span class="hljs-number">100</span>]<br><span class="hljs-keyword">let</span> [x, y, ...rest] = scores<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(rest) <span class="hljs-comment">// [ 80, 90, 100 ]</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>ES2018 将 spead operator 扩展到对象，这称为 object spread。</p>
+</blockquote>
+<h2 id="JavaScript-spread-operator-and-apply-method"><a href="#JavaScript-spread-operator-and-apply-method" class="headerlink" title="JavaScript spread operator and apply() method"></a>JavaScript spread operator and apply() method</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">compare</span>(<span class="hljs-params">a, b</span>) &#123;<br>  <span class="hljs-keyword">return</span> a - b<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="Setting-default-values"><a href="#Setting-default-values" class="headerlink" title="Setting default values"></a>Setting default values</h3><p>如果不想给变量设置为 <code>undefined</code>，那么可以使用如下语法为解构数组对应的变量设置默认值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>]<br><span class="hljs-keyword">let</span> [x, y, z = <span class="hljs-number">80</span>] = scores<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(z) <span class="hljs-comment">// 80</span><br></code></pre></td></tr></table></figure>
+<p>在 ES5 中，要将两个数字的数组传递给 compare() 函数，通常使用 apply() 方法，因为 apply() 方法的参数传递是以数组的形式并自动解包的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> result = compare.<span class="hljs-title function_">apply</span>(<span class="hljs-literal">null</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(result) <span class="hljs-comment">// -1</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="Nested-array-destructuring"><a href="#Nested-array-destructuring" class="headerlink" title="Nested array destructuring"></a>Nested array destructuring</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> nestedArr = [<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Doe&#x27;</span>, [<span class="hljs-string">&#x27;Red&#x27;</span>, <span class="hljs-string">&#x27;Green&#x27;</span>, <span class="hljs-string">&#x27;Blue&#x27;</span>]<br><br><span class="hljs-keyword">let</span> [firstName, lastName, [red, green, blue]] = nestedArr<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(firstName, lastName, red, green, blue) <span class="hljs-comment">// John Doe Red Green Blue</span><br></code></pre></td></tr></table></figure>
+<p>但是，通过使用扩展运算符，可以将两个数字的数组传递给 compare()函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> result = <span class="hljs-title function_">compare</span>(...[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(result) <span class="hljs-comment">// -1</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="Object-Destructuring"><a href="#Object-Destructuring" class="headerlink" title="Object Destructuring"></a>Object Destructuring</h2><p>ES6 引入了对象解构语法，提供了另一种将对象属性分配给变量的方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> user = &#123;<br>  <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;Stein&#x27;</span>,<br>  <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Albert&#x27;</span>,<br>&#125;<br><br><span class="hljs-keyword">let</span> &#123; <span class="hljs-attr">firstName</span>: fName, <span class="hljs-attr">lastName</span>: lName &#125; = user<br></code></pre></td></tr></table></figure>
+<p>展开运算符展开数组的元素。</p>
+<h2 id="A-better-way-to-use-the-Array’s-push-method-example"><a href="#A-better-way-to-use-the-Array’s-push-method-example" class="headerlink" title="A better way to use the Array’s push() method example"></a>A better way to use the Array’s push() method example</h2><p>数组对象的 push() 方法向数组添加一个或多个元素。如果要将数组传递给 push() 方法，则需要使用 apply() 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> rivers = [<span class="hljs-string">&#x27;Nile&#x27;</span>, <span class="hljs-string">&#x27;Ganges&#x27;</span>, <span class="hljs-string">&#x27;Yangte&#x27;</span>]<br><span class="hljs-keyword">let</span> moreRivers = [<span class="hljs-string">&#x27;Danube&#x27;</span>, <span class="hljs-string">&#x27;Amazon&#x27;</span>]<br><br>;[].<span class="hljs-property">push</span>.<span class="hljs-title function_">apply</span>(rivers, moreRivers)<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(rivers) <span class="hljs-comment">// [ &#x27;Nile&#x27;, &#x27;Ganges&#x27;, &#x27;Yangte&#x27;, &#x27;Danube&#x27;, &#x27;Amazon&#x27; ]</span><br></code></pre></td></tr></table></figure>
 
-<p>firstName 和 lastName 属性分别分配给 fname 和 lname 变量。冒号（:）之前的标识符是对象的属性，冒号之后的标识符是变量。</p>
-<p>如果变量与对象的属性具有相同的名称，则可以使代码更加简洁，如下所示：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> &#123; firstName, lastName &#125; = user<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(firstName) <span class="hljs-comment">// &#x27;Stein&#x27;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(lastName) <span class="hljs-comment">// &#x27;Albert&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>使用扩展运算符来提高代码的可读性：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">rivers.<span class="hljs-title function_">push</span>(...moreRivers)<br></code></pre></td></tr></table></figure>
 
-<h3 id="Setting-default-values-1"><a href="#Setting-default-values-1" class="headerlink" title="Setting default values"></a>Setting default values</h3><p>当对象的属性不存在时，可以为变量分配默认值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> person = &#123;<br>  <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;John&#x27;</span>,<br>  <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Doe&#x27;</span>,<br>  <span class="hljs-attr">currentAge</span>: <span class="hljs-number">28</span>,<br>&#125;<br><br><span class="hljs-keyword">let</span> &#123; firstName, lastName, middleName = <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-attr">currentAge</span>: age = <span class="hljs-number">18</span> &#125; = person<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(middleName) <span class="hljs-comment">// &#x27;&#x27;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(age) <span class="hljs-comment">// 28</span><br></code></pre></td></tr></table></figure>
+<h2 id="JavaScript-spread-operator-and-array-manipulation"><a href="#JavaScript-spread-operator-and-array-manipulation" class="headerlink" title="JavaScript spread operator and array manipulation"></a>JavaScript spread operator and array manipulation</h2><h3 id="Constructing-array-literal"><a href="#Constructing-array-literal" class="headerlink" title="Constructing array literal"></a>Constructing array literal</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> initialChars = [<span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;B&#x27;</span>]<br><span class="hljs-keyword">let</span> chars = [...initialChars, <span class="hljs-string">&#x27;C&#x27;</span>, <span class="hljs-string">&#x27;D&#x27;</span>]<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(chars) <span class="hljs-comment">// [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;]</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="Nested-object-destructuring"><a href="#Nested-object-destructuring" class="headerlink" title="Nested object destructuring"></a>Nested object destructuring</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> employee = &#123;<br>  <span class="hljs-attr">id</span>: <span class="hljs-number">1001</span>,<br>  <span class="hljs-attr">name</span>: &#123;<br>    <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;John&#x27;</span>,<br>    <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Doe&#x27;</span>,<br>  &#125;,<br>&#125;<br><br><span class="hljs-keyword">let</span> &#123;<br>  <span class="hljs-attr">name</span>: &#123; <span class="hljs-attr">firstName</span>: f, <span class="hljs-attr">lastName</span>: l &#125;,<br>&#125; = employee<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(f) <span class="hljs-comment">// John</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(l) <span class="hljs-comment">// Doe</span><br></code></pre></td></tr></table></figure>
+<h3 id="Concatenating-arrays"><a href="#Concatenating-arrays" class="headerlink" title="Concatenating arrays"></a>Concatenating arrays</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]<br><span class="hljs-keyword">let</span> moreNumbers = [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]<br><span class="hljs-keyword">let</span> allNumbers = [...numbers, ...moreNumbers]<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(allNumbers) <span class="hljs-comment">// [1, 2, 3, 4]</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="Destructuring-function-arguments"><a href="#Destructuring-function-arguments" class="headerlink" title="Destructuring function arguments"></a>Destructuring function arguments</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> <span class="hljs-title function_">display</span> = (<span class="hljs-params">&#123; firstName, lastName &#125;</span>) =&gt;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;firstName&#125;</span> <span class="hljs-subst">$&#123;lastName&#125;</span>`</span>)<br><span class="hljs-keyword">let</span> person = &#123;<br>  <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;John&#x27;</span>,<br>  <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Doe&#x27;</span>,<br>&#125;<br><span class="hljs-title function_">display</span>(person)<br></code></pre></td></tr></table></figure>
+<h3 id="Copying-an-array"><a href="#Copying-an-array" class="headerlink" title="Copying an array"></a>Copying an array</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> scores = [<span class="hljs-number">80</span>, <span class="hljs-number">70</span>, <span class="hljs-number">90</span>]<br><span class="hljs-keyword">let</span> copiedScores = [...scores]<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(copiedScores) <span class="hljs-comment">// [80, 70, 90]</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="JavaScript-spread-operator-and-strings"><a href="#JavaScript-spread-operator-and-strings" class="headerlink" title="JavaScript spread operator and strings"></a>JavaScript spread operator and strings</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> chars = [<span class="hljs-string">&#x27;A&#x27;</span>, ...<span class="hljs-string">&#x27;BC&#x27;</span>, <span class="hljs-string">&#x27;D&#x27;</span>]<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(chars) <span class="hljs-comment">// [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;]</span><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -394,7 +406,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/ES6/" class="print-no-link">#ES6</a>
+        <a href="/tags/ES-6/" class="print-no-link">#ES 6</a>
       
     </div>
   
@@ -406,8 +418,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>ES6 Destructuring</div>
-      <div>https://stein283036.github.io/2024/03/06/ES6-Destructuring/</div>
+      <div>JavaScript Spread Operator</div>
+      <div>https://stein283036.github.io/2024/03/06/JavaScript-Spread-Operator/</div>
     </div>
     <div class="license-meta">
       
@@ -456,9 +468,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/06/JavaScript-Rest-Parameters/" title="JavaScript Rest Parameters">
+                      <a href="/2024/03/06/JavaScript-for-of-Loop/" title="JavaScript for...of Loop">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JavaScript Rest Parameters</span>
+                        <span class="hidden-mobile">JavaScript for...of Loop</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -466,8 +478,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/05/Java-Generics/" title="Java Generics">
-                        <span class="hidden-mobile">Java Generics</span>
+                      <a href="/2024/03/06/JavaScript-Default-Parameters/" title="JavaScript Default Parameters">
+                        <span class="hidden-mobile">JavaScript Default Parameters</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

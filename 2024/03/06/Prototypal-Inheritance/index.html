@@ -16,22 +16,27 @@
   <meta name="author" content="倪京龙">
   <meta name="keywords" content="Technology,Life,Programming,Java,JavaScript,System Design,MySQL,Spring,倪京龙,Linux">
   
-    <meta name="description" content="IntroductionES6 提供了一个称为解构赋值的新功能，将对象的属性或数组的元素解构为单独的变量。 ES 5 old-school style在 ES 5 及以前，要想将数组的元素或对象的属性赋值给单独的变量需要使用以下语法： Array1234const scores &#x3D; [70, 80, 90]let x &#x3D; scores[0],  y &#x3D; scores[1],  z &#x3D; scores">
+    <meta name="description" content="Introduction to JavaScript prototypal inheritance在 OOP 编程范式中，类是创建对象的蓝图。如果希望新类重用现有类的功能，可以创建一个扩展现有类的新类。这称为经典继承。 JavaScript 不使用经典继承。相反，它使用原型继承。 在原型继承中，一个对象通过原型链接从另一个对象“继承”属性。 JavaScript prototypal inheri">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6 Destructuring">
-<meta property="og:url" content="https://stein283036.github.io/2024/03/06/ES6-Destructuring/">
+<meta property="og:title" content="Prototypal Inheritance">
+<meta property="og:url" content="https://stein283036.github.io/2024/03/06/Prototypal-Inheritance/">
 <meta property="og:site_name" content="倪京龙的个人博客">
-<meta property="og:description" content="IntroductionES6 提供了一个称为解构赋值的新功能，将对象的属性或数组的元素解构为单独的变量。 ES 5 old-school style在 ES 5 及以前，要想将数组的元素或对象的属性赋值给单独的变量需要使用以下语法： Array1234const scores &#x3D; [70, 80, 90]let x &#x3D; scores[0],  y &#x3D; scores[1],  z &#x3D; scores">
+<meta property="og:description" content="Introduction to JavaScript prototypal inheritance在 OOP 编程范式中，类是创建对象的蓝图。如果希望新类重用现有类的功能，可以创建一个扩展现有类的新类。这称为经典继承。 JavaScript 不使用经典继承。相反，它使用原型继承。 在原型继承中，一个对象通过原型链接从另一个对象“继承”属性。 JavaScript prototypal inheri">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-06T09:59:01.000Z">
-<meta property="article:modified_time" content="2024-03-06T12:02:20.977Z">
+<meta property="og:image" content="https://www.javascripttutorial.net/wp-content/uploads/2022/01/JS-prototype.svg">
+<meta property="og:image" content="https://www.javascripttutorial.net/wp-content/uploads/2022/01/JavaScript-prototypal-inheritance-inherits-from-Object.svg">
+<meta property="og:image" content="https://www.javascripttutorial.net/wp-content/uploads/2022/01/JavaScript-prototypal-inheritance-example.svg">
+<meta property="article:published_time" content="2024-03-06T12:26:29.000Z">
+<meta property="article:modified_time" content="2024-03-06T12:27:03.126Z">
 <meta property="article:author" content="倪京龙">
-<meta property="article:tag" content="ES6">
+<meta property="article:tag" content="JavaScript Prototype">
+<meta property="article:tag" content="JavaScript Inheritance">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.javascripttutorial.net/wp-content/uploads/2022/01/JS-prototype.svg">
   
   
   
-  <title>ES6 Destructuring - 倪京龙的个人博客</title>
+  <title>Prototypal Inheritance - 倪京龙的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -238,7 +243,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="ES6 Destructuring"></span>
+            <span id="subtitle" data-typed-text="Prototypal Inheritance"></span>
           
         </div>
 
@@ -249,8 +254,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-06 17:59" pubdate>
-          2024年3月6日 下午
+        <time datetime="2024-03-06 20:26" pubdate>
+          2024年3月6日 晚上
         </time>
       </span>
     
@@ -261,7 +266,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          535 字
+          861 字
         
       </span>
     
@@ -272,7 +277,7 @@
         
         
         
-          5 分钟
+          8 分钟
         
       </span>
     
@@ -317,7 +322,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">ES6 Destructuring</h1>
+            <h1 id="seo-header">Prototypal Inheritance</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
@@ -330,37 +335,74 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>ES6 提供了一个称为解构赋值的新功能，将对象的属性或数组的元素解构为单独的变量。</p>
-<h2 id="ES-5-old-school-style"><a href="#ES-5-old-school-style" class="headerlink" title="ES 5 old-school style"></a>ES 5 old-school style</h2><p>在 ES 5 及以前，要想将数组的元素或对象的属性赋值给单独的变量需要使用以下语法：</p>
-<h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">90</span>]<br><span class="hljs-keyword">let</span> x = scores[<span class="hljs-number">0</span>],<br>  y = scores[<span class="hljs-number">1</span>],<br>  z = scores[<span class="hljs-number">2</span>]<br></code></pre></td></tr></table></figure>
+                <h2 id="Introduction-to-JavaScript-prototypal-inheritance"><a href="#Introduction-to-JavaScript-prototypal-inheritance" class="headerlink" title="Introduction to JavaScript prototypal inheritance"></a>Introduction to JavaScript prototypal inheritance</h2><p>在 OOP 编程范式中，类是创建对象的蓝图。如果希望新类重用现有类的功能，可以创建一个扩展现有类的新类。这称为经典继承。</p>
+<p>JavaScript 不使用经典继承。相反，它使用原型继承。</p>
+<p>在原型继承中，一个对象通过原型链接从另一个对象“继承”属性。</p>
+<h2 id="JavaScript-prototypal-inheritance-and-proto"><a href="#JavaScript-prototypal-inheritance-and-proto" class="headerlink" title="JavaScript prototypal inheritance and __proto__"></a>JavaScript prototypal inheritance and <code>__proto__</code></h2><p>下面定义了一个 person 对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> person = &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;John Doe&#x27;</span>,<br>  <span class="hljs-attr">greet</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hi, I&#x27;m &quot;</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span><br>  &#125;,<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> user = &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;stein&#x27;</span>,<br>  <span class="hljs-attr">age</span>: <span class="hljs-number">23</span>,<br>&#125;<br><br><span class="hljs-keyword">let</span> name = user.<span class="hljs-property">name</span><br><span class="hljs-keyword">let</span> age = user.<span class="hljs-property">age</span><br></code></pre></td></tr></table></figure>
+<p>在此示例中，person 对象有一个属性和一个方法：</p>
+<ul>
+<li><p>name 是存储人名的属性。</p>
+</li>
+<li><p>greet 是一个以字符串形式返回问候语的方法。</p>
+</li>
+</ul>
+<p>默认情况下，JavaScript 引擎提供内置的 Object() 函数和可由 Object.prototype 引用的匿名对象：</p>
+<p><img src="https://www.javascripttutorial.net/wp-content/uploads/2022/01/JS-prototype.svg" srcset="/img/loading.gif" lazyload alt="JavaScript Prototype"></p>
+<p>这意味着 person 对象可以调用 Object.prototype 引用的匿名对象中定义的任何方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person.<span class="hljs-title function_">toString</span>());<br>[object <span class="hljs-title class_">Object</span>]<br></code></pre></td></tr></table></figure>
 
-<h2 id="Array-Destructuring"><a href="#Array-Destructuring" class="headerlink" title="Array Destructuring"></a>Array Destructuring</h2><p>从 ES 6 开始，可以使用如下的语法进行数组解构赋值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">90</span>]<br><span class="hljs-keyword">let</span> [x, y, z] = scores<br></code></pre></td></tr></table></figure>
+<p>[object Object] 是对象的默认字符串表示形式。</p>
+<p>当通过 person 调用 toString() 方法时，JavaScript 引擎无法在 person 对象上找到它。因此，它沿着原型链寻找 Object.prototype 对象中的方法。</p>
+<p>要访问 person 对象的原型，可以使用 <code>__proto__ </code> 属性，如下所示</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person.<span class="hljs-property">__proto__</span>)<br></code></pre></td></tr></table></figure>
 
-<p>如果 <code>scores</code> 数组只有两个值，那么变量 <code>z</code> 将会被赋值为 <code>undefined</code>，如果 <code>scores</code> 数组的元素长度大于 3，那么多余的元素将会被丢弃。</p>
-<h3 id="Array-Destructuring-Assignment-and-Rest-syntax"><a href="#Array-Destructuring-Assignment-and-Rest-syntax" class="headerlink" title="Array Destructuring Assignment and Rest syntax"></a>Array Destructuring Assignment and Rest syntax</h3><p>可以使用 rest parameter (…) 将数组的所有剩余元素全部添加到一个新的数组中。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">90</span>, <span class="hljs-number">100</span>]<br><span class="hljs-keyword">let</span> [x, y, ...rest] = scores<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(rest) <span class="hljs-comment">// [ 80, 90, 100 ]</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>注意，永远不应该在生产代码中使用 <strong>proto</strong> 属性。</p>
+</blockquote>
+<p>下面显示了 <code>person.__proto__</code> 和 Object.prototype 引用了同一个对象：</p>
+<p>下面定义了具有 teach() 方法的 teacher 对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> teacher = &#123;<br>  <span class="hljs-attr">teach</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">subject</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;I can teach &#x27;</span> + subject<br>  &#125;,<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="Setting-default-values"><a href="#Setting-default-values" class="headerlink" title="Setting default values"></a>Setting default values</h3><p>如果不想给变量设置为 <code>undefined</code>，那么可以使用如下语法为解构数组对应的变量设置默认值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>]<br><span class="hljs-keyword">let</span> [x, y, z = <span class="hljs-number">80</span>] = scores<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(z) <span class="hljs-comment">// 80</span><br></code></pre></td></tr></table></figure>
+<p>与 person 对象一样，<code>teacher.__proto__</code> 引用了 Object.prototype，如下图所示：</p>
+<p><img src="https://www.javascripttutorial.net/wp-content/uploads/2022/01/JavaScript-prototypal-inheritance-inherits-from-Object.svg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>如果想让 teacher 对象访问 person 对象的所有方法和属性，可以将 teacher 对象的原型设置为 person 对象，如下所示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">teacher.<span class="hljs-property">__proto__</span> = person<br></code></pre></td></tr></table></figure>
 
-<h3 id="Nested-array-destructuring"><a href="#Nested-array-destructuring" class="headerlink" title="Nested array destructuring"></a>Nested array destructuring</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> nestedArr = [<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Doe&#x27;</span>, [<span class="hljs-string">&#x27;Red&#x27;</span>, <span class="hljs-string">&#x27;Green&#x27;</span>, <span class="hljs-string">&#x27;Blue&#x27;</span>]<br><br><span class="hljs-keyword">let</span> [firstName, lastName, [red, green, blue]] = nestedArr<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(firstName, lastName, red, green, blue) <span class="hljs-comment">// John Doe Red Green Blue</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://www.javascripttutorial.net/wp-content/uploads/2022/01/JavaScript-prototypal-inheritance-example.svg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>现在，teacher 对象可以通过原型链从 person 对象访问 name 属性和 greet() 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(teacher.<span class="hljs-property">name</span>) <span class="hljs-comment">// John Doe</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(teacher.<span class="hljs-title function_">greet</span>()) <span class="hljs-comment">// Hi, I&#x27;m John Doe</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="Object-Destructuring"><a href="#Object-Destructuring" class="headerlink" title="Object Destructuring"></a>Object Destructuring</h2><p>ES6 引入了对象解构语法，提供了另一种将对象属性分配给变量的方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> user = &#123;<br>  <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;Stein&#x27;</span>,<br>  <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Albert&#x27;</span>,<br>&#125;<br><br><span class="hljs-keyword">let</span> &#123; <span class="hljs-attr">firstName</span>: fName, <span class="hljs-attr">lastName</span>: lName &#125; = user<br></code></pre></td></tr></table></figure>
+<p>当在 teacher 对象上调用 greet() 方法时，JavaScript 引擎首先在 teacher 对象中找到它。</p>
+<p>由于 JavaScript 引擎无法在 teacher 对象中找到该方法，因此它沿着原型链在 person 对象中搜索该方法。因为 JavaScript 引擎可以在 person 对象中找到 greet() 方法，所以它会执行该方法。</p>
+<p>在 JavaScript 中，我们说 teacher 对象继承了 person 对象的方法和属性。这种继承称为原型继承（<strong>prototypal inheritance</strong>）。</p>
+<h2 id="A-standard-way-to-implement-prototypal-inheritance-in-ES5"><a href="#A-standard-way-to-implement-prototypal-inheritance-in-ES5" class="headerlink" title="A standard way to implement prototypal inheritance in ES5"></a>A standard way to implement prototypal inheritance in ES5</h2><p>ES5 通过使用 Object.create() 方法提供了一种处理原型继承的标准方法。</p>
+<blockquote>
+<p>注意，现在应该使用较新的 ES6 类和 extends 关键字来实现继承。简单多了。</p>
+</blockquote>
+<p>Object.create() 方法创建一个新对象并使用现有对象作为新对象的原型：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(proto, [propertiesObject])<br></code></pre></td></tr></table></figure>
 
-<p>firstName 和 lastName 属性分别分配给 fname 和 lname 变量。冒号（:）之前的标识符是对象的属性，冒号之后的标识符是变量。</p>
-<p>如果变量与对象的属性具有相同的名称，则可以使代码更加简洁，如下所示：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> &#123; firstName, lastName &#125; = user<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(firstName) <span class="hljs-comment">// &#x27;Stein&#x27;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(lastName) <span class="hljs-comment">// &#x27;Albert&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>Object.create() 方法接受两个参数：</p>
+<ul>
+<li>第一个参数 (proto) 是用作新对象的原型对象。</li>
+<li>第二个参数 (propertiesObject)（如果提供）是一个可选对象，用于为新对象定义其他属性。</li>
+</ul>
+<p>假设有一个 person 对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> person = &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;John Doe&#x27;</span>,<br>  <span class="hljs-attr">greet</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hi, I&#x27;m &quot;</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span><br>  &#125;,<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="Setting-default-values-1"><a href="#Setting-default-values-1" class="headerlink" title="Setting default values"></a>Setting default values</h3><p>当对象的属性不存在时，可以为变量分配默认值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> person = &#123;<br>  <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;John&#x27;</span>,<br>  <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Doe&#x27;</span>,<br>  <span class="hljs-attr">currentAge</span>: <span class="hljs-number">28</span>,<br>&#125;<br><br><span class="hljs-keyword">let</span> &#123; firstName, lastName, middleName = <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-attr">currentAge</span>: age = <span class="hljs-number">18</span> &#125; = person<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(middleName) <span class="hljs-comment">// &#x27;&#x27;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(age) <span class="hljs-comment">// 28</span><br></code></pre></td></tr></table></figure>
+<p>以下代码使用 person 对象作为原型对象创建一个空的 teacher 对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> teacher = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(person)<br></code></pre></td></tr></table></figure>
 
-<h3 id="Nested-object-destructuring"><a href="#Nested-object-destructuring" class="headerlink" title="Nested object destructuring"></a>Nested object destructuring</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> employee = &#123;<br>  <span class="hljs-attr">id</span>: <span class="hljs-number">1001</span>,<br>  <span class="hljs-attr">name</span>: &#123;<br>    <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;John&#x27;</span>,<br>    <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Doe&#x27;</span>,<br>  &#125;,<br>&#125;<br><br><span class="hljs-keyword">let</span> &#123;<br>  <span class="hljs-attr">name</span>: &#123; <span class="hljs-attr">firstName</span>: f, <span class="hljs-attr">lastName</span>: l &#125;,<br>&#125; = employee<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(f) <span class="hljs-comment">// John</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(l) <span class="hljs-comment">// Doe</span><br></code></pre></td></tr></table></figure>
+<p>之后，可以为 teacher 对象定义属性：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">teacher.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;Jane Doe&#x27;</span><br>teacher.<span class="hljs-property">teach</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">subject</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;I can teach &#x27;</span> + subject<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="Destructuring-function-arguments"><a href="#Destructuring-function-arguments" class="headerlink" title="Destructuring function arguments"></a>Destructuring function arguments</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> <span class="hljs-title function_">display</span> = (<span class="hljs-params">&#123; firstName, lastName &#125;</span>) =&gt;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;firstName&#125;</span> <span class="hljs-subst">$&#123;lastName&#125;</span>`</span>)<br><span class="hljs-keyword">let</span> person = &#123;<br>  <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;John&#x27;</span>,<br>  <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Doe&#x27;</span>,<br>&#125;<br><span class="hljs-title function_">display</span>(person)<br></code></pre></td></tr></table></figure>
+<p>或者可以在一条语句中执行所有这些步骤，如下所示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> teacher = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">create</span>(person, &#123;<br>  <span class="hljs-attr">name</span>: &#123; <span class="hljs-attr">value</span>: <span class="hljs-string">&#x27;John Doe&#x27;</span> &#125;,<br>  <span class="hljs-attr">teach</span>: &#123;<br>    <span class="hljs-attr">value</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">subject</span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;I can teach &#x27;</span> + subject<br>    &#125;,<br>  &#125;,<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>ES5 还引入了 Object.getPrototypeOf() 方法，该方法返回对象的原型。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(teacher) === person) <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -394,7 +436,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/ES6/" class="print-no-link">#ES6</a>
+        <a href="/tags/JavaScript-Prototype/" class="print-no-link">#JavaScript Prototype</a>
+      
+        <a href="/tags/JavaScript-Inheritance/" class="print-no-link">#JavaScript Inheritance</a>
       
     </div>
   
@@ -406,8 +450,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>ES6 Destructuring</div>
-      <div>https://stein283036.github.io/2024/03/06/ES6-Destructuring/</div>
+      <div>Prototypal Inheritance</div>
+      <div>https://stein283036.github.io/2024/03/06/Prototypal-Inheritance/</div>
     </div>
     <div class="license-meta">
       
@@ -456,9 +500,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/06/JavaScript-Rest-Parameters/" title="JavaScript Rest Parameters">
+                      <a href="/2024/03/06/JavaScript-this-Keyword/" title="JavaScript this Keyword">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JavaScript Rest Parameters</span>
+                        <span class="hidden-mobile">JavaScript this Keyword</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -466,8 +510,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/05/Java-Generics/" title="Java Generics">
-                        <span class="hidden-mobile">Java Generics</span>
+                      <a href="/2024/03/06/JavaScript-Constructor-Prototype-Pattern/" title="JavaScript Constructor/Prototype Pattern">
+                        <span class="hidden-mobile">JavaScript Constructor/Prototype Pattern</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

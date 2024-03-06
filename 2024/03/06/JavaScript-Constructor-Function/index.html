@@ -16,22 +16,22 @@
   <meta name="author" content="倪京龙">
   <meta name="keywords" content="Technology,Life,Programming,Java,JavaScript,System Design,MySQL,Spring,倪京龙,Linux">
   
-    <meta name="description" content="IntroductionES6 提供了一个称为解构赋值的新功能，将对象的属性或数组的元素解构为单独的变量。 ES 5 old-school style在 ES 5 及以前，要想将数组的元素或对象的属性赋值给单独的变量需要使用以下语法： Array1234const scores &#x3D; [70, 80, 90]let x &#x3D; scores[0],  y &#x3D; scores[1],  z &#x3D; scores">
+    <meta name="description" content="Introduction to JavaScript constructor functions可以使用构造函数来定义自定义类型，并使用 new 运算符从该类型创建多个对象。 从技术上讲，任何函数（除了箭头函数，它没有自己的 this）都可以用作构造器。即可以通过 new 来运行，它会执行上面的算法。“首字母大写”是一个共同的约定，以明确表示一个函数将被使用 new 来运行。 构造函数是具有以下约">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6 Destructuring">
-<meta property="og:url" content="https://stein283036.github.io/2024/03/06/ES6-Destructuring/">
+<meta property="og:title" content="JavaScript Constructor Function">
+<meta property="og:url" content="https://stein283036.github.io/2024/03/06/JavaScript-Constructor-Function/">
 <meta property="og:site_name" content="倪京龙的个人博客">
-<meta property="og:description" content="IntroductionES6 提供了一个称为解构赋值的新功能，将对象的属性或数组的元素解构为单独的变量。 ES 5 old-school style在 ES 5 及以前，要想将数组的元素或对象的属性赋值给单独的变量需要使用以下语法： Array1234const scores &#x3D; [70, 80, 90]let x &#x3D; scores[0],  y &#x3D; scores[1],  z &#x3D; scores">
+<meta property="og:description" content="Introduction to JavaScript constructor functions可以使用构造函数来定义自定义类型，并使用 new 运算符从该类型创建多个对象。 从技术上讲，任何函数（除了箭头函数，它没有自己的 this）都可以用作构造器。即可以通过 new 来运行，它会执行上面的算法。“首字母大写”是一个共同的约定，以明确表示一个函数将被使用 new 来运行。 构造函数是具有以下约">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-06T09:59:01.000Z">
-<meta property="article:modified_time" content="2024-03-06T12:02:20.977Z">
+<meta property="article:published_time" content="2024-03-06T12:00:42.000Z">
+<meta property="article:modified_time" content="2024-03-06T12:02:16.342Z">
 <meta property="article:author" content="倪京龙">
-<meta property="article:tag" content="ES6">
+<meta property="article:tag" content="JavaScript Function">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>ES6 Destructuring - 倪京龙的个人博客</title>
+  <title>JavaScript Constructor Function - 倪京龙的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -238,7 +238,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="ES6 Destructuring"></span>
+            <span id="subtitle" data-typed-text="JavaScript Constructor Function"></span>
           
         </div>
 
@@ -249,8 +249,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-06 17:59" pubdate>
-          2024年3月6日 下午
+        <time datetime="2024-03-06 20:00" pubdate>
+          2024年3月6日 晚上
         </time>
       </span>
     
@@ -261,7 +261,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          535 字
+          1.1k 字
         
       </span>
     
@@ -272,7 +272,7 @@
         
         
         
-          5 分钟
+          10 分钟
         
       </span>
     
@@ -317,7 +317,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">ES6 Destructuring</h1>
+            <h1 id="seo-header">JavaScript Constructor Function</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
@@ -330,37 +330,73 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>ES6 提供了一个称为解构赋值的新功能，将对象的属性或数组的元素解构为单独的变量。</p>
-<h2 id="ES-5-old-school-style"><a href="#ES-5-old-school-style" class="headerlink" title="ES 5 old-school style"></a>ES 5 old-school style</h2><p>在 ES 5 及以前，要想将数组的元素或对象的属性赋值给单独的变量需要使用以下语法：</p>
-<h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">90</span>]<br><span class="hljs-keyword">let</span> x = scores[<span class="hljs-number">0</span>],<br>  y = scores[<span class="hljs-number">1</span>],<br>  z = scores[<span class="hljs-number">2</span>]<br></code></pre></td></tr></table></figure>
+                <h2 id="Introduction-to-JavaScript-constructor-functions"><a href="#Introduction-to-JavaScript-constructor-functions" class="headerlink" title="Introduction to JavaScript constructor functions"></a>Introduction to JavaScript constructor functions</h2><p>可以使用构造函数来定义自定义类型，并使用 new 运算符从该类型创建多个对象。</p>
+<p>从技术上讲，任何函数（除了箭头函数，它没有自己的 <code>this</code>）都可以用作构造器。即可以通过 <code>new</code> 来运行，它会执行上面的算法。“首字母大写”是一个共同的约定，以明确表示一个函数将被使用 <code>new</code> 来运行。</p>
+<p>构造函数是具有以下约定的常规函数：</p>
+<ul>
+<li>构造函数的名称以大写字母开头，如 Person、Document 等。</li>
+<li>构造函数只能使用 new 运算符调用。</li>
+</ul>
+<p>注意，ES6 引入了 class 关键字，允许定义自定义类型。<strong>类只是构造函数的语法糖，具有一些增强功能。</strong></p>
+<p>以下示例定义了一个名为 Person 的构造函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params">firstName, lastName</span>) &#123;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">firstName</span> = firstName<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">lastName</span> = lastName<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> user = &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;stein&#x27;</span>,<br>  <span class="hljs-attr">age</span>: <span class="hljs-number">23</span>,<br>&#125;<br><br><span class="hljs-keyword">let</span> name = user.<span class="hljs-property">name</span><br><span class="hljs-keyword">let</span> age = user.<span class="hljs-property">age</span><br></code></pre></td></tr></table></figure>
+<p>要创建 Person 的新实例，使用 new 运算符：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> person = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Doe&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
-<h2 id="Array-Destructuring"><a href="#Array-Destructuring" class="headerlink" title="Array Destructuring"></a>Array Destructuring</h2><p>从 ES 6 开始，可以使用如下的语法进行数组解构赋值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">90</span>]<br><span class="hljs-keyword">let</span> [x, y, z] = scores<br></code></pre></td></tr></table></figure>
+<p>基本上，new 运算符执行以下操作：</p>
+<ul>
+<li>创建一个新的空对象 {} 并将其分配给 this。</li>
+<li>函数体执行。通常它会修改 <code>this</code>，为其添加新的属性，将参数“John”和“Doe”分配给对象的 firstName 和 lastName 属性。</li>
+<li>返回 this 值。</li>
+</ul>
+<p>它在功能上等同于以下内容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params">firstName, lastName</span>) &#123;<br>  <span class="hljs-comment">// this = &#123;&#125;;</span><br>  <span class="hljs-comment">// add properties to this</span><br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">firstName</span> = firstName<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">lastName</span> = lastName<br>  <span class="hljs-comment">// return this;</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>如果 <code>scores</code> 数组只有两个值，那么变量 <code>z</code> 将会被赋值为 <code>undefined</code>，如果 <code>scores</code> 数组的元素长度大于 3，那么多余的元素将会被丢弃。</p>
-<h3 id="Array-Destructuring-Assignment-and-Rest-syntax"><a href="#Array-Destructuring-Assignment-and-Rest-syntax" class="headerlink" title="Array Destructuring Assignment and Rest syntax"></a>Array Destructuring Assignment and Rest syntax</h3><p>可以使用 rest parameter (…) 将数组的所有剩余元素全部添加到一个新的数组中。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">90</span>, <span class="hljs-number">100</span>]<br><span class="hljs-keyword">let</span> [x, y, ...rest] = scores<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(rest) <span class="hljs-comment">// [ 80, 90, 100 ]</span><br></code></pre></td></tr></table></figure>
+<p>顺便说一下，如果没有参数，可以省略 <code>new</code> 后的括号：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> user = <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>() <span class="hljs-comment">// &lt;-- 没有参数</span><br><span class="hljs-comment">// 等同于</span><br><span class="hljs-keyword">let</span> user = <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>()<br></code></pre></td></tr></table></figure>
 
-<h3 id="Setting-default-values"><a href="#Setting-default-values" class="headerlink" title="Setting default values"></a>Setting default values</h3><p>如果不想给变量设置为 <code>undefined</code>，那么可以使用如下语法为解构数组对应的变量设置默认值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>]<br><span class="hljs-keyword">let</span> [x, y, z = <span class="hljs-number">80</span>] = scores<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(z) <span class="hljs-comment">// 80</span><br></code></pre></td></tr></table></figure>
+<p>这里省略括号不被认为是一种“好风格”，但是规范允许使用该语法。</p>
+<h2 id="Adding-methods-to-JavaScript-constructor-functions"><a href="#Adding-methods-to-JavaScript-constructor-functions" class="headerlink" title="Adding methods to JavaScript constructor functions"></a>Adding methods to JavaScript constructor functions</h2><p>对象可能具有操作其数据的方法。要向通过构造函数创建的对象添加方法，可以使用 this 关键字。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params">firstName, lastName</span>) &#123;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">firstName</span> = firstName<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">lastName</span> = lastName<br><br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">getFullName</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">firstName</span> + <span class="hljs-string">&#x27; &#x27;</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">lastName</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="Nested-array-destructuring"><a href="#Nested-array-destructuring" class="headerlink" title="Nested array destructuring"></a>Nested array destructuring</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> nestedArr = [<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Doe&#x27;</span>, [<span class="hljs-string">&#x27;Red&#x27;</span>, <span class="hljs-string">&#x27;Green&#x27;</span>, <span class="hljs-string">&#x27;Blue&#x27;</span>]<br><br><span class="hljs-keyword">let</span> [firstName, lastName, [red, green, blue]] = nestedArr<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(firstName, lastName, red, green, blue) <span class="hljs-comment">// John Doe Red Green Blue</span><br></code></pre></td></tr></table></figure>
+<p>现在，可以创建一个新的 Person 对象并调用 getFullName() 方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> person = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Doe&#x27;</span>)<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person.<span class="hljs-title function_">getFullName</span>()) <span class="hljs-comment">// John Doe</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="Object-Destructuring"><a href="#Object-Destructuring" class="headerlink" title="Object Destructuring"></a>Object Destructuring</h2><p>ES6 引入了对象解构语法，提供了另一种将对象属性分配给变量的方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> user = &#123;<br>  <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;Stein&#x27;</span>,<br>  <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Albert&#x27;</span>,<br>&#125;<br><br><span class="hljs-keyword">let</span> &#123; <span class="hljs-attr">firstName</span>: fName, <span class="hljs-attr">lastName</span>: lName &#125; = user<br></code></pre></td></tr></table></figure>
+<p>构造函数的问题在于，当创建 Person 的多个实例时， this.getFullName() 会在每个实例中重复（不共享），这样内存效率不高。</p>
+<p>要解决此问题，可以使用原型，以便自定义类型的所有实例都可以共享相同的方法。</p>
+<h2 id="Returning-from-constructor-functions"><a href="#Returning-from-constructor-functions" class="headerlink" title="Returning from constructor functions"></a>Returning from constructor functions</h2><p>通常，构造函数隐式返回设置为新创建对象的 this 。但如果它有 return 语句，则规则如下：</p>
+<ul>
+<li>如果使用对象调用 return，构造函数将返回该对象而不是 this。</li>
+<li>如果使用对象以外的值调用 return，则该值将被忽略。</li>
+</ul>
+<p>换句话说，带有对象的 <code>return</code> 返回该对象，在所有其他情况下返回 <code>this</code>。</p>
+<h2 id="Calling-a-constructor-function-without-the-new-keyword"><a href="#Calling-a-constructor-function-without-the-new-keyword" class="headerlink" title="Calling a constructor function without the new keyword"></a>Calling a constructor function without the <code>new</code> keyword</h2><p>从技术上讲，可以像常规函数一样调用构造函数，而无需使用 new 关键字，如下所示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> person = <span class="hljs-title class_">Person</span>(<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Doe&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
-<p>firstName 和 lastName 属性分别分配给 fname 和 lname 变量。冒号（:）之前的标识符是对象的属性，冒号之后的标识符是变量。</p>
-<p>如果变量与对象的属性具有相同的名称，则可以使代码更加简洁，如下所示：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> &#123; firstName, lastName &#125; = user<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(firstName) <span class="hljs-comment">// &#x27;Stein&#x27;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(lastName) <span class="hljs-comment">// &#x27;Albert&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>在这种情况下，Person 只是像常规函数一样执行。因此，Person 函数中的 this 并不绑定到 person 变量，而是绑定到全局对象。</p>
+<p>如果尝试访问 firstName 或 lastName 属性，将收到错误：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person.<span class="hljs-property">firstName</span>);<br><span class="hljs-title class_">TypeError</span>: <span class="hljs-title class_">Cannot</span> read property <span class="hljs-string">&#x27;firstName&#x27;</span> <span class="hljs-keyword">of</span> <span class="hljs-literal">undefined</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="Setting-default-values-1"><a href="#Setting-default-values-1" class="headerlink" title="Setting default values"></a>Setting default values</h3><p>当对象的属性不存在时，可以为变量分配默认值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> person = &#123;<br>  <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;John&#x27;</span>,<br>  <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Doe&#x27;</span>,<br>  <span class="hljs-attr">currentAge</span>: <span class="hljs-number">28</span>,<br>&#125;<br><br><span class="hljs-keyword">let</span> &#123; firstName, lastName, middleName = <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-attr">currentAge</span>: age = <span class="hljs-number">18</span> &#125; = person<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(middleName) <span class="hljs-comment">// &#x27;&#x27;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(age) <span class="hljs-comment">// 28</span><br></code></pre></td></tr></table></figure>
+<p>同样，无法访问 getFullName() 方法，因为它绑定到全局对象。</p>
+<p>为了防止在没有 new 关键字的情况下调用构造函数，ES6 引入了 new.target 属性。</p>
+<p>如果使用 new 关键字调用构造函数，则 new.target 返回该函数的引用。否则，它返回 undefined。</p>
+<p>下面向 Person 函数添加一条语句，以将 new.target 显示到控制台：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params">firstName, lastName</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-keyword">new</span>.<span class="hljs-property">target</span>)<br><br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">firstName</span> = firstName<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">lastName</span> = lastName<br><br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">getFullName</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">firstName</span> + <span class="hljs-string">&#x27; &#x27;</span> + <span class="hljs-variable language_">this</span>.<span class="hljs-property">lastName</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="Nested-object-destructuring"><a href="#Nested-object-destructuring" class="headerlink" title="Nested object destructuring"></a>Nested object destructuring</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> employee = &#123;<br>  <span class="hljs-attr">id</span>: <span class="hljs-number">1001</span>,<br>  <span class="hljs-attr">name</span>: &#123;<br>    <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;John&#x27;</span>,<br>    <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Doe&#x27;</span>,<br>  &#125;,<br>&#125;<br><br><span class="hljs-keyword">let</span> &#123;<br>  <span class="hljs-attr">name</span>: &#123; <span class="hljs-attr">firstName</span>: f, <span class="hljs-attr">lastName</span>: l &#125;,<br>&#125; = employee<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(f) <span class="hljs-comment">// John</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(l) <span class="hljs-comment">// Doe</span><br></code></pre></td></tr></table></figure>
+<p>以下返回 undefined，因为 Person 构造函数的调用方式与常规函数类似：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> person = <span class="hljs-title class_">Person</span>(<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Doe&#x27;</span>) <span class="hljs-comment">// undefined</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="Destructuring-function-arguments"><a href="#Destructuring-function-arguments" class="headerlink" title="Destructuring function arguments"></a>Destructuring function arguments</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> <span class="hljs-title function_">display</span> = (<span class="hljs-params">&#123; firstName, lastName &#125;</span>) =&gt;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;firstName&#125;</span> <span class="hljs-subst">$&#123;lastName&#125;</span>`</span>)<br><span class="hljs-keyword">let</span> person = &#123;<br>  <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;John&#x27;</span>,<br>  <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Doe&#x27;</span>,<br>&#125;<br><span class="hljs-title function_">display</span>(person)<br></code></pre></td></tr></table></figure>
+<p>但是，以下代码返回对 Person 函数的引用，因为它被称为 new 关键字：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> person = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Doe&#x27;</span>) <span class="hljs-comment">// [Function: Person]</span><br></code></pre></td></tr></table></figure>
+
+<p>通过使用 new.target，可以强制构造函数的调用者使用 new 关键字。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params">firstName, lastName</span>) &#123;<br>  <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">new</span>.<span class="hljs-property">target</span>) &#123;<br>    <span class="hljs-keyword">throw</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Cannot be called without the new keyword&#x27;</span>)<br>  &#125;<br><br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">firstName</span> = firstName<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">lastName</span> = lastName<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>或者，如果构造函数的用户不使用 new 关键字，则可以通过创建新的 Person 对象来使语法更加灵活：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">Person</span>(<span class="hljs-params">firstName, lastName</span>) &#123;<br>  <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">new</span>.<span class="hljs-property">target</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(firstName, lastName)<br>  &#125;<br><br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">firstName</span> = firstName<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">lastName</span> = lastName<br>&#125;<br><br><span class="hljs-keyword">let</span> person = <span class="hljs-title class_">Person</span>(<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Doe&#x27;</span>)<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(person.<span class="hljs-property">firstName</span>)<br></code></pre></td></tr></table></figure>
+
+<p>这种模式经常用于 JavaScript 库和框架中，以使语法更加灵活。</p>
 
                 
               </div>
@@ -394,7 +430,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/ES6/" class="print-no-link">#ES6</a>
+        <a href="/tags/JavaScript-Function/" class="print-no-link">#JavaScript Function</a>
       
     </div>
   
@@ -406,8 +442,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>ES6 Destructuring</div>
-      <div>https://stein283036.github.io/2024/03/06/ES6-Destructuring/</div>
+      <div>JavaScript Constructor Function</div>
+      <div>https://stein283036.github.io/2024/03/06/JavaScript-Constructor-Function/</div>
     </div>
     <div class="license-meta">
       
@@ -456,9 +492,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/06/JavaScript-Rest-Parameters/" title="JavaScript Rest Parameters">
+                      <a href="/2024/03/06/JavaScript-Prototype/" title="JavaScript Prototype">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JavaScript Rest Parameters</span>
+                        <span class="hidden-mobile">JavaScript Prototype</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -466,8 +502,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/05/Java-Generics/" title="Java Generics">
-                        <span class="hidden-mobile">Java Generics</span>
+                      <a href="/2024/03/06/JavaScript-Arrow-Functions/" title="JavaScript Arrow Functions">
+                        <span class="hidden-mobile">JavaScript Arrow Functions</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

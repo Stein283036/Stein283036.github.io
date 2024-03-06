@@ -16,22 +16,22 @@
   <meta name="author" content="倪京龙">
   <meta name="keywords" content="Technology,Life,Programming,Java,JavaScript,System Design,MySQL,Spring,倪京龙,Linux">
   
-    <meta name="description" content="IntroductionES6 提供了一个称为解构赋值的新功能，将对象的属性或数组的元素解构为单独的变量。 ES 5 old-school style在 ES 5 及以前，要想将数组的元素或对象的属性赋值给单独的变量需要使用以下语法： Array1234const scores &#x3D; [70, 80, 90]let x &#x3D; scores[0],  y &#x3D; scores[1],  z &#x3D; scores">
+    <meta name="description" content="Introduction to JavaScript rest parametersES6 提供了一种新的参数，称为 rest parameter，其前缀为三个点 (…)。rest parameter 允许将不定数量的参数表示为数组。 123function fn(a, b, ...args) &amp;#123;  &#x2F;&#x2F;...&amp;#125;  最后一个参数 (args) 以三个点 (…) 为前缀。它称为">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6 Destructuring">
-<meta property="og:url" content="https://stein283036.github.io/2024/03/06/ES6-Destructuring/">
+<meta property="og:title" content="JavaScript Rest Parameters">
+<meta property="og:url" content="https://stein283036.github.io/2024/03/06/JavaScript-Rest-Parameters/">
 <meta property="og:site_name" content="倪京龙的个人博客">
-<meta property="og:description" content="IntroductionES6 提供了一个称为解构赋值的新功能，将对象的属性或数组的元素解构为单独的变量。 ES 5 old-school style在 ES 5 及以前，要想将数组的元素或对象的属性赋值给单独的变量需要使用以下语法： Array1234const scores &#x3D; [70, 80, 90]let x &#x3D; scores[0],  y &#x3D; scores[1],  z &#x3D; scores">
+<meta property="og:description" content="Introduction to JavaScript rest parametersES6 提供了一种新的参数，称为 rest parameter，其前缀为三个点 (…)。rest parameter 允许将不定数量的参数表示为数组。 123function fn(a, b, ...args) &amp;#123;  &#x2F;&#x2F;...&amp;#125;  最后一个参数 (args) 以三个点 (…) 为前缀。它称为">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-06T09:59:01.000Z">
-<meta property="article:modified_time" content="2024-03-06T12:02:20.977Z">
+<meta property="article:published_time" content="2024-03-06T11:52:24.000Z">
+<meta property="article:modified_time" content="2024-03-06T12:02:13.388Z">
 <meta property="article:author" content="倪京龙">
 <meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>ES6 Destructuring - 倪京龙的个人博客</title>
+  <title>JavaScript Rest Parameters - 倪京龙的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -238,7 +238,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="ES6 Destructuring"></span>
+            <span id="subtitle" data-typed-text="JavaScript Rest Parameters"></span>
           
         </div>
 
@@ -249,8 +249,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-06 17:59" pubdate>
-          2024年3月6日 下午
+        <time datetime="2024-03-06 19:52" pubdate>
+          2024年3月6日 晚上
         </time>
       </span>
     
@@ -261,7 +261,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          535 字
+          601 字
         
       </span>
     
@@ -272,7 +272,7 @@
         
         
         
-          5 分钟
+          6 分钟
         
       </span>
     
@@ -317,7 +317,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">ES6 Destructuring</h1>
+            <h1 id="seo-header">JavaScript Rest Parameters</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
@@ -330,37 +330,43 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>ES6 提供了一个称为解构赋值的新功能，将对象的属性或数组的元素解构为单独的变量。</p>
-<h2 id="ES-5-old-school-style"><a href="#ES-5-old-school-style" class="headerlink" title="ES 5 old-school style"></a>ES 5 old-school style</h2><p>在 ES 5 及以前，要想将数组的元素或对象的属性赋值给单独的变量需要使用以下语法：</p>
-<h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">90</span>]<br><span class="hljs-keyword">let</span> x = scores[<span class="hljs-number">0</span>],<br>  y = scores[<span class="hljs-number">1</span>],<br>  z = scores[<span class="hljs-number">2</span>]<br></code></pre></td></tr></table></figure>
+                <h2 id="Introduction-to-JavaScript-rest-parameters"><a href="#Introduction-to-JavaScript-rest-parameters" class="headerlink" title="Introduction to JavaScript rest parameters"></a>Introduction to JavaScript rest parameters</h2><p>ES6 提供了一种新的参数，称为 rest parameter，其前缀为三个点 (…)。rest parameter 允许将不定数量的参数表示为数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">fn</span>(<span class="hljs-params">a, b, ...args</span>) &#123;<br>  <span class="hljs-comment">//...</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> user = &#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;stein&#x27;</span>,<br>  <span class="hljs-attr">age</span>: <span class="hljs-number">23</span>,<br>&#125;<br><br><span class="hljs-keyword">let</span> name = user.<span class="hljs-property">name</span><br><span class="hljs-keyword">let</span> age = user.<span class="hljs-property">age</span><br></code></pre></td></tr></table></figure>
+<p>最后一个参数 (args) 以三个点 (…) 为前缀。它称为 rest parameter。</p>
+<p>传递给函数的所有实参都将映射到参数列表。在上面的语法中，第一个参数映射到 a，第二个参数映射到 b，第三个、第四个等将作为数组存储在 rest parameter args 中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">fn</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;B&#x27;</span>, <span class="hljs-string">&#x27;C&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
-<h2 id="Array-Destructuring"><a href="#Array-Destructuring" class="headerlink" title="Array Destructuring"></a>Array Destructuring</h2><p>从 ES 6 开始，可以使用如下的语法进行数组解构赋值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">90</span>]<br><span class="hljs-keyword">let</span> [x, y, z] = scores<br></code></pre></td></tr></table></figure>
+<p>args 数组存储以下值：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">;[<span class="hljs-number">3</span>, <span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;B&#x27;</span>, <span class="hljs-string">&#x27;C&#x27;</span>]<br></code></pre></td></tr></table></figure>
 
-<p>如果 <code>scores</code> 数组只有两个值，那么变量 <code>z</code> 将会被赋值为 <code>undefined</code>，如果 <code>scores</code> 数组的元素长度大于 3，那么多余的元素将会被丢弃。</p>
-<h3 id="Array-Destructuring-Assignment-and-Rest-syntax"><a href="#Array-Destructuring-Assignment-and-Rest-syntax" class="headerlink" title="Array Destructuring Assignment and Rest syntax"></a>Array Destructuring Assignment and Rest syntax</h3><p>可以使用 rest parameter (…) 将数组的所有剩余元素全部添加到一个新的数组中。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">90</span>, <span class="hljs-number">100</span>]<br><span class="hljs-keyword">let</span> [x, y, ...rest] = scores<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(rest) <span class="hljs-comment">// [ 80, 90, 100 ]</span><br></code></pre></td></tr></table></figure>
+<p>如果仅传递前两个参数，则 rest parameter 将为空数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">fn</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
 
-<h3 id="Setting-default-values"><a href="#Setting-default-values" class="headerlink" title="Setting default values"></a>Setting default values</h3><p>如果不想给变量设置为 <code>undefined</code>，那么可以使用如下语法为解构数组对应的变量设置默认值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> scores = [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>]<br><span class="hljs-keyword">let</span> [x, y, z = <span class="hljs-number">80</span>] = scores<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(z) <span class="hljs-comment">// 80</span><br></code></pre></td></tr></table></figure>
+<p>注意，rest parameter 必须出现在参数列表的末尾。以下代码将导致错误：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">fn</span>(<span class="hljs-params">a,...rest, b</span>) &#123;<br> <span class="hljs-comment">// error</span><br>&#125;<br><span class="hljs-title class_">SyntaxError</span>: <span class="hljs-title class_">Rest</span> parameter must be last formal parameter<br></code></pre></td></tr></table></figure>
 
-<h3 id="Nested-array-destructuring"><a href="#Nested-array-destructuring" class="headerlink" title="Nested array destructuring"></a>Nested array destructuring</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> nestedArr = [<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Doe&#x27;</span>, [<span class="hljs-string">&#x27;Red&#x27;</span>, <span class="hljs-string">&#x27;Green&#x27;</span>, <span class="hljs-string">&#x27;Blue&#x27;</span>]<br><br><span class="hljs-keyword">let</span> [firstName, lastName, [red, green, blue]] = nestedArr<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(firstName, lastName, red, green, blue) <span class="hljs-comment">// John Doe Red Green Blue</span><br></code></pre></td></tr></table></figure>
+<h2 id="More-JavaScript-rest-parameters-examples"><a href="#More-JavaScript-rest-parameters-examples" class="headerlink" title="More JavaScript rest parameters examples"></a>More JavaScript rest parameters examples</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">sum</span>(<span class="hljs-params">...args</span>) &#123;<br>  <span class="hljs-keyword">let</span> total = <span class="hljs-number">0</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> a <span class="hljs-keyword">of</span> args) &#123;<br>    total += a<br>  &#125;<br>  <span class="hljs-keyword">return</span> total<br>&#125;<br><br><span class="hljs-title function_">sum</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>) <span class="hljs-comment">// 6</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="Object-Destructuring"><a href="#Object-Destructuring" class="headerlink" title="Object Destructuring"></a>Object Destructuring</h2><p>ES6 引入了对象解构语法，提供了另一种将对象属性分配给变量的方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> user = &#123;<br>  <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;Stein&#x27;</span>,<br>  <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Albert&#x27;</span>,<br>&#125;<br><br><span class="hljs-keyword">let</span> &#123; <span class="hljs-attr">firstName</span>: fName, <span class="hljs-attr">lastName</span>: lName &#125; = user<br></code></pre></td></tr></table></figure>
+<p>在此示例中，args 在数组中。因此，可以使用 for..of 循环来迭代其元素并对它们求和。</p>
+<p>假设 sum() 函数的调用者可以传递各种数据类型的参数，例如数字、字符串和布尔值，并且只想计算数字的总和：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">sum</span>(<span class="hljs-params">...args</span>) &#123;<br>  <span class="hljs-keyword">return</span> args<br>    .<span class="hljs-title function_">filter</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> e === <span class="hljs-string">&#x27;number&#x27;</span><br>    &#125;)<br>    .<span class="hljs-title function_">reduce</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">prev, curr</span>) &#123;<br>      <span class="hljs-keyword">return</span> prev + curr<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>firstName 和 lastName 属性分别分配给 fname 和 lname 变量。冒号（:）之前的标识符是对象的属性，冒号之后的标识符是变量。</p>
-<p>如果变量与对象的属性具有相同的名称，则可以使代码更加简洁，如下所示：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> &#123; firstName, lastName &#125; = user<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(firstName) <span class="hljs-comment">// &#x27;Stein&#x27;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(lastName) <span class="hljs-comment">// &#x27;Albert&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>以下脚本使用新的 sum() 函数仅对数字参数求和：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> result = <span class="hljs-title function_">sum</span>(<span class="hljs-number">10</span>, <span class="hljs-string">&#x27;Hi&#x27;</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-number">20</span>)<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(result) <span class="hljs-comment">// 30</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="Setting-default-values-1"><a href="#Setting-default-values-1" class="headerlink" title="Setting default values"></a>Setting default values</h3><p>当对象的属性不存在时，可以为变量分配默认值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> person = &#123;<br>  <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;John&#x27;</span>,<br>  <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Doe&#x27;</span>,<br>  <span class="hljs-attr">currentAge</span>: <span class="hljs-number">28</span>,<br>&#125;<br><br><span class="hljs-keyword">let</span> &#123; firstName, lastName, middleName = <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-attr">currentAge</span>: age = <span class="hljs-number">18</span> &#125; = person<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(middleName) <span class="hljs-comment">// &#x27;&#x27;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(age) <span class="hljs-comment">// 28</span><br></code></pre></td></tr></table></figure>
+<p>如果没有 rest parameter，必须使用函数的 arguments 对象。</p>
+<p>但是，arguments 对象本身并不是 Array 类型的实例。因此，不能直接使用 filter() 方法。在 ES5 中，必须使用 Array.prototype.filter.call()，如下所示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">sum</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Array</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">filter</span><br>    .<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">arguments</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> e === <span class="hljs-string">&#x27;number&#x27;</span><br>    &#125;)<br>    .<span class="hljs-title function_">reduce</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">prev, curr</span>) &#123;<br>      <span class="hljs-keyword">return</span> prev + curr<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="Nested-object-destructuring"><a href="#Nested-object-destructuring" class="headerlink" title="Nested object destructuring"></a>Nested object destructuring</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> employee = &#123;<br>  <span class="hljs-attr">id</span>: <span class="hljs-number">1001</span>,<br>  <span class="hljs-attr">name</span>: &#123;<br>    <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;John&#x27;</span>,<br>    <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Doe&#x27;</span>,<br>  &#125;,<br>&#125;<br><br><span class="hljs-keyword">let</span> &#123;<br>  <span class="hljs-attr">name</span>: &#123; <span class="hljs-attr">firstName</span>: f, <span class="hljs-attr">lastName</span>: l &#125;,<br>&#125; = employee<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(f) <span class="hljs-comment">// John</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(l) <span class="hljs-comment">// Doe</span><br></code></pre></td></tr></table></figure>
+<p>rest 参数使代码更加优雅。假设需要根据特定类型（例如数字、字符串、布尔值和 null）过滤参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">filterBy</span>(<span class="hljs-params">type, ...args</span>) &#123;<br>  <span class="hljs-keyword">return</span> args.<span class="hljs-title function_">filter</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> e === type<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="Destructuring-function-arguments"><a href="#Destructuring-function-arguments" class="headerlink" title="Destructuring function arguments"></a>Destructuring function arguments</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> <span class="hljs-title function_">display</span> = (<span class="hljs-params">&#123; firstName, lastName &#125;</span>) =&gt;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;firstName&#125;</span> <span class="hljs-subst">$&#123;lastName&#125;</span>`</span>)<br><span class="hljs-keyword">let</span> person = &#123;<br>  <span class="hljs-attr">firstName</span>: <span class="hljs-string">&#x27;John&#x27;</span>,<br>  <span class="hljs-attr">lastName</span>: <span class="hljs-string">&#x27;Doe&#x27;</span>,<br>&#125;<br><span class="hljs-title function_">display</span>(person)<br></code></pre></td></tr></table></figure>
+<h2 id="JavaScript-rest-parameters-and-arrow-function"><a href="#JavaScript-rest-parameters-and-arrow-function" class="headerlink" title="JavaScript rest parameters and arrow function"></a>JavaScript rest parameters and arrow function</h2><p>箭头函数没有 arguments 对象。因此，如果要向箭头函数传递一些参数，则必须使用 rest parameter。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">combine</span> = (<span class="hljs-params">...args</span>) =&gt; &#123;<br>  <span class="hljs-keyword">return</span> args.<span class="hljs-title function_">reduce</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">prev, curr</span>) &#123;<br>    <span class="hljs-keyword">return</span> prev + <span class="hljs-string">&#x27; &#x27;</span> + curr<br>  &#125;)<br>&#125;<br><span class="hljs-comment">// const combine = (...args) =&gt; args.reduce((prev, curr) =&gt; `$&#123;prev&#125; $&#123;curr&#125;`)</span><br><br><span class="hljs-keyword">let</span> message = <span class="hljs-title function_">combine</span>(<span class="hljs-string">&#x27;JavaScript&#x27;</span>, <span class="hljs-string">&#x27;Rest&#x27;</span>, <span class="hljs-string">&#x27;Parameters&#x27;</span>) <span class="hljs-comment">// =&gt;</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(message) <span class="hljs-comment">// JavaScript Rest Parameters</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="JavaScript-rest-parameter-in-a-dynamic-function"><a href="#JavaScript-rest-parameter-in-a-dynamic-function" class="headerlink" title="JavaScript rest parameter in a dynamic function"></a>JavaScript rest parameter in a dynamic function</h2><p>JavaScript 可以通过 Function 构造函数创建动态函数。并且可以在动态函数中使用 rest parameter。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> showNumbers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Function</span>(<span class="hljs-string">&#x27;...numbers&#x27;</span>, <span class="hljs-string">&#x27;console.log(numbers)&#x27;</span>)<br><span class="hljs-title function_">showNumbers</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>) <span class="hljs-comment">// [ 1, 2, 3 ]</span><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -406,8 +412,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>ES6 Destructuring</div>
-      <div>https://stein283036.github.io/2024/03/06/ES6-Destructuring/</div>
+      <div>JavaScript Rest Parameters</div>
+      <div>https://stein283036.github.io/2024/03/06/JavaScript-Rest-Parameters/</div>
     </div>
     <div class="license-meta">
       
@@ -456,9 +462,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/06/JavaScript-Rest-Parameters/" title="JavaScript Rest Parameters">
+                      <a href="/2024/03/06/JavaScript-Default-Parameters/" title="JavaScript Default Parameters">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JavaScript Rest Parameters</span>
+                        <span class="hidden-mobile">JavaScript Default Parameters</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -466,8 +472,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/05/Java-Generics/" title="Java Generics">
-                        <span class="hidden-mobile">Java Generics</span>
+                      <a href="/2024/03/06/ES6-Destructuring/" title="ES6 Destructuring">
+                        <span class="hidden-mobile">ES6 Destructuring</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
