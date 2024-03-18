@@ -539,7 +539,7 @@
     <link href="/2024/03/05/Java-Generics/"/>
     <url>/2024/03/05/Java-Generics/</url>
     
-    <content type="html"><![CDATA[<ol><li><a href="./Why-Use-Generics.md">Why Use Generics?</a></li><li><a href="./Generic-Types.md">Generic Types</a></li><li><a href="./Generic-Methods.md">Generic Methods</a></li><li><a href="./Bounded-Type-Parameters.md">Bounded Type Parameters</a></li><li><a href="./Generics-Inheritance-and-Subtypes.md">Generics, Inheritance, and Subtypes</a></li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li><a href="https://stein283036.github.io/2024/03/18/Why-Use-Generics/">Why Use Generics?</a></li><li><a href="https://stein283036.github.io/2024/03/18/Generic-Types/">Generic Types</a></li><li><a href="https://stein283036.github.io/2024/03/18/Generic-Methods/">Generic Methods</a></li><li><a href="https://stein283036.github.io/2024/03/18/Bounded-Type-Parameters/">Bounded Type Parameters</a></li><li><a href="https://stein283036.github.io/2024/03/18/Generics-Inheritance-and-Subtypes/">Generics, Inheritance, and Subtypes</a></li></ol>]]></content>
     
     
     <categories>
