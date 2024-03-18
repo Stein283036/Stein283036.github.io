@@ -24,7 +24,7 @@
 <meta property="og:description" content="Annotations, a form of metadata, provide data about a program that is not part of the program itself. Annotations have no direct effect on the operation of the code they annotate. Annotations have a n">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-18T03:14:33.000Z">
-<meta property="article:modified_time" content="2024-03-18T05:44:11.959Z">
+<meta property="article:modified_time" content="2024-03-18T08:28:11.222Z">
 <meta property="article:author" content="倪京龙">
 <meta property="article:tag" content="Annotations">
 <meta name="twitter:card" content="summary_large_image">
@@ -378,7 +378,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">void</span> <span class="hljs-title function_">monitorTemperature</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span><br>      <span class="hljs-meta">@Critical</span> TemperatureException &#123; ... &#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
 <p>这种形式的注解称为类型注解。</p>
-<h2 id="Declaring-an-Annotation-Type"><a href="#Declaring-an-Annotation-Type" class="headerlink" title="Declaring an Annotation Type"></a>Declaring an Annotation Type</h2><p>许多注解取代了代码中的注解。</p>
+<h2 id="Declaring-an-Annotation-Type"><a href="#Declaring-an-Annotation-Type" class="headerlink" title="Declaring an Annotation Type"></a>Declaring an Annotation Type</h2><p>许多注解取代了代码中的注释。</p>
 <p>Suppose that a software group traditionally starts the body of every class with comments providing important information:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Generation3List</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Generation2List</span> &#123;<br><br>   <span class="hljs-comment">// Author: John Doe</span><br>   <span class="hljs-comment">// Date: 3/17/2002</span><br>   <span class="hljs-comment">// Current revision: 6</span><br>   <span class="hljs-comment">// Last modified: 4/12/2004</span><br>   <span class="hljs-comment">// By: Jane Doe</span><br>   <span class="hljs-comment">// Reviewers: Alice, Bill, Cindy</span><br><br>   <span class="hljs-comment">// class code goes here</span><br><br>&#125;<br></code></pre></td></tr></table></figure>
 
