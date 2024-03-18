@@ -16,22 +16,26 @@
   <meta name="author" content="倪京龙">
   <meta name="keywords" content="Technology,Life,Programming,Java,JavaScript,System Design,MySQL,Spring,倪京龙,Linux">
   
-    <meta name="description" content="There may be times when you want to restrict the types that can be used as type arguments in a parameterized type. For example, a method that operates on numbers might only want to accept instances of">
+    <meta name="description" content="As you already know, it is possible to assign an object of one type to an object of another type provided that the types are compatible. For example, you can assign an Integer to an Object, since Obje">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bounded Type Parameters">
-<meta property="og:url" content="https://stein283036.github.io/2024/03/18/Bounded-Type-Parameters/">
+<meta property="og:title" content="Generics, Inheritance, and Subtypes">
+<meta property="og:url" content="https://stein283036.github.io/2024/03/18/Generics-Inheritance-and-Subtypes/">
 <meta property="og:site_name" content="倪京龙的个人博客">
-<meta property="og:description" content="There may be times when you want to restrict the types that can be used as type arguments in a parameterized type. For example, a method that operates on numbers might only want to accept instances of">
+<meta property="og:description" content="As you already know, it is possible to assign an object of one type to an object of another type provided that the types are compatible. For example, you can assign an Integer to an Object, since Obje">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-18T06:39:29.000Z">
-<meta property="article:modified_time" content="2024-03-18T07:22:23.308Z">
+<meta property="og:image" content="https://docs.oracle.com/javase/tutorial/figures/java/generics-subtypeRelationship.gif">
+<meta property="og:image" content="https://docs.oracle.com/javase/tutorial/figures/java/generics-sampleHierarchy.gif">
+<meta property="og:image" content="https://docs.oracle.com/javase/tutorial/figures/java/generics-payloadListHierarchy.gif">
+<meta property="article:published_time" content="2024-03-18T07:24:57.000Z">
+<meta property="article:modified_time" content="2024-03-18T07:41:11.874Z">
 <meta property="article:author" content="倪京龙">
 <meta property="article:tag" content="Generics">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://docs.oracle.com/javase/tutorial/figures/java/generics-subtypeRelationship.gif">
   
   
   
-  <title>Bounded Type Parameters - 倪京龙的个人博客</title>
+  <title>Generics, Inheritance, and Subtypes - 倪京龙的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -238,7 +242,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Bounded Type Parameters"></span>
+            <span id="subtitle" data-typed-text="Generics, Inheritance, and Subtypes"></span>
           
         </div>
 
@@ -249,7 +253,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-18 14:39" pubdate>
+        <time datetime="2024-03-18 15:24" pubdate>
           2024年3月18日 下午
         </time>
       </span>
@@ -261,7 +265,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          139 字
+          223 字
         
       </span>
     
@@ -317,7 +321,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Bounded Type Parameters</h1>
+            <h1 id="seo-header">Generics, Inheritance, and Subtypes</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
@@ -330,21 +334,33 @@
             
               <div class="markdown-body">
                 
-                <p>There may be times when you want to restrict the types that can be used as type arguments in a parameterized type. For example, a method that operates on numbers might only want to accept instances of Number or its subclasses. This is what bounded type parameters are for.</p>
-<p>To declare a bounded type parameter, list the type parameter’s name, followed by the extends keyword, followed by its upper bound. Note that, in this context, extends is used in a general sense to mean either “extends” (as in classes) or “implements” (as in interfaces).</p>
-<h2 id="Multiple-Bounds"><a href="#Multiple-Bounds" class="headerlink" title="Multiple Bounds"></a>Multiple Bounds</h2><p>类型参数可以具有多个边界：</p>
-<p><code>&lt;T extends B1 &amp; B2 &amp; B3&gt;</code></p>
-<p>A type variable with multiple bounds is a subtype of all the types listed in the bound. If one of the bounds is a class, it must be specified first. For example:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">Class A &#123; <span class="hljs-comment">/* ... */</span> &#125;<br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">B</span> &#123; <span class="hljs-comment">/* ... */</span> &#125;<br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">C</span> &#123; <span class="hljs-comment">/* ... */</span> &#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">D</span> &lt;T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">A</span> &amp; B &amp; C&gt; &#123; <span class="hljs-comment">/* ... */</span> &#125;<br></code></pre></td></tr></table></figure>
+                <p>As you already know, it is possible to assign an object of one type to an object of another type provided that the types are compatible. For example, you can assign an Integer to an Object, since Object is one of Integer’s supertypes:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Object</span> <span class="hljs-variable">someObject</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>();<br><span class="hljs-type">Integer</span> <span class="hljs-variable">someInteger</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>(<span class="hljs-number">10</span>);<br>someObject = someInteger;   <span class="hljs-comment">// OK</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="Generic-Methods-and-Bounded-Type-Parameters"><a href="#Generic-Methods-and-Bounded-Type-Parameters" class="headerlink" title="Generic Methods and Bounded Type Parameters"></a>Generic Methods and Bounded Type Parameters</h2><p>Bounded type parameters are key to the implementation of generic algorithms. Consider the following method that counts the number of elements in an array T[] that are greater than a specified element elem.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-type">int</span> <span class="hljs-title function_">countGreaterThan</span><span class="hljs-params">(T[] anArray, T elem)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (T e : anArray)<br>        <span class="hljs-keyword">if</span> (e &gt; elem)  <span class="hljs-comment">// compiler error</span><br>            ++count;<br>    <span class="hljs-keyword">return</span> count;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在面向对象的术语中，这称为“是”关系。由于 Integer 是 Object 的一种，因此允许赋值。但 Integer 也是 Number 的一种，因此以下代码也是有效的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">someMethod</span><span class="hljs-params">(Number n)</span> &#123; <span class="hljs-comment">/* ... */</span> &#125;<br><br>someMethod(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>(<span class="hljs-number">10</span>));   <span class="hljs-comment">// OK</span><br>someMethod(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Double</span>(<span class="hljs-number">10.1</span>));   <span class="hljs-comment">// OK</span><br></code></pre></td></tr></table></figure>
 
-<p>The implementation of the method is straightforward, but it does not compile because the greater than operator (&gt;) applies only to primitive types such as short, int, double, long, float, byte, and char. You cannot use the &gt; operator to compare objects. To fix the problem, use a type parameter bounded by the <code>Comparable&lt;T&gt;</code> interface:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Comparable</span>&lt;T&gt; &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compareTo</span><span class="hljs-params">(T o)</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>The same is also true with generics. You can perform a generic type invocation, passing Number as its type argument, and any subsequent invocation of add will be allowed if the argument is compatible with Number:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">Box&lt;Number&gt; box = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Box</span>&lt;Number&gt;();<br>box.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>(<span class="hljs-number">10</span>));   <span class="hljs-comment">// OK</span><br>box.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Double</span>(<span class="hljs-number">10.1</span>));  <span class="hljs-comment">// OK</span><br></code></pre></td></tr></table></figure>
 
-<p>The resulting code will be:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Comparable</span>&lt;T&gt;&gt; <span class="hljs-type">int</span> <span class="hljs-title function_">countGreaterThan</span><span class="hljs-params">(T[] anArray, T elem)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (T e : anArray)<br>        <span class="hljs-keyword">if</span> (e.compareTo(elem) &gt; <span class="hljs-number">0</span>)<br>            ++count;<br>    <span class="hljs-keyword">return</span> count;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Now consider the following method:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">boxTest</span><span class="hljs-params">(Box&lt;Number&gt; n)</span> &#123; <span class="hljs-comment">/* ... */</span> &#125;<br></code></pre></td></tr></table></figure>
+
+<p>What type of argument does it accept? By looking at its signature, you can see that it accepts a single argument whose type is <code>Box&lt;Number&gt;</code>. But what does that mean? Are you allowed to pass in <code>Box&lt;Integer&gt;</code> or <code>Box&lt;Double&gt;</code>, as you might expect? The answer is “no”, because <code>Box&lt;Integer&gt;</code> and <code>Box&lt;Double&gt;</code> are not subtypes of <code>Box&lt;Number&gt;</code>.</p>
+<p><img src="https://docs.oracle.com/javase/tutorial/figures/java/generics-subtypeRelationship.gif" srcset="/img/loading.gif" lazyload alt="Generics, Inheritance, and Subtypes"></p>
+<blockquote>
+<p>Given two concrete types A and B (for example, Number and Integer), <code>MyClass&lt;A&gt;</code> has no relationship to <code>MyClass&lt;B&gt;</code>, regardless of whether or not A and B are related. The common parent of <code>MyClass&lt;A&gt;</code> and <code>MyClass&lt;B&gt;</code> is Object.</p>
+</blockquote>
+<h2 id="Generic-Classes-and-Subtyping"><a href="#Generic-Classes-and-Subtyping" class="headerlink" title="Generic Classes and Subtyping"></a>Generic Classes and Subtyping</h2><p>You can subtype a generic class or interface by extending or implementing it. The relationship between the type parameters of one class or interface and the type parameters of another are determined by the extends and implements clauses.</p>
+<p>Using the Collections classes as an example, <code>ArrayList&lt;E&gt;</code> implements <code>List&lt;E&gt;</code>, and <code>List&lt;E&gt;</code> extends <code>Collection&lt;E&gt;</code>. So <code>ArrayList&lt;String&gt;</code> is a subtype of <code>List&lt;String&gt;</code>, which is a subtype of <code>Collection&lt;String&gt;</code>. So long as you do not vary the type argument, the subtyping relationship is preserved between the types.</p>
+<p><img src="https://docs.oracle.com/javase/tutorial/figures/java/generics-sampleHierarchy.gif" srcset="/img/loading.gif" lazyload alt="A sample Collections hierarchy"></p>
+<p>Now imagine we want to define our own list interface, PayloadList, that associates an optional value of generic type <code>P</code> with each element. Its declaration might look like:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">PayloadList</span>&lt;E,P&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">List</span>&lt;E&gt; &#123;<br>  <span class="hljs-keyword">void</span> <span class="hljs-title function_">setPayload</span><span class="hljs-params">(<span class="hljs-type">int</span> index, P val)</span>;<br>  ...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>The following parameterizations of PayloadList are subtypes of <code>List&lt;String&gt;</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">PayloadList&lt;String,String&gt;<br>PayloadList&lt;String,Integer&gt;<br>PayloadList&lt;String,Exception&gt;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://docs.oracle.com/javase/tutorial/figures/java/generics-payloadListHierarchy.gif" srcset="/img/loading.gif" lazyload alt="A sample PayloadList hierarchy"></p>
 
                 
               </div>
@@ -390,8 +406,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Bounded Type Parameters</div>
-      <div>https://stein283036.github.io/2024/03/18/Bounded-Type-Parameters/</div>
+      <div>Generics, Inheritance, and Subtypes</div>
+      <div>https://stein283036.github.io/2024/03/18/Generics-Inheritance-and-Subtypes/</div>
     </div>
     <div class="license-meta">
       
@@ -440,18 +456,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/18/Generics-Inheritance-and-Subtypes/" title="Generics, Inheritance, and Subtypes">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Generics, Inheritance, and Subtypes</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/18/Generic-Methods/" title="Generic Methods">
-                        <span class="hidden-mobile">Generic Methods</span>
+                      <a href="/2024/03/18/Bounded-Type-Parameters/" title="Bounded Type Parameters">
+                        <span class="hidden-mobile">Bounded Type Parameters</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
