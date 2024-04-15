@@ -16,15 +16,15 @@
   <meta name="author" content="倪京龙">
   <meta name="keywords" content="Technology,Life,Programming,Java,JavaScript,System Design,MySQL,Spring,倪京龙,Linux">
   
-    <meta name="description" content="个人博客">
+    <meta name="description" content="Introductionjava.util.Objects 类是 Java 7 引入的一个实用工具类，提供了一些静态方法来操作对象。它主要用于处理对象的空值情况，避免了空指针异常。 Commonly Used Methods equals(Object a, Object b)：比较两个对象是否相等，避免了空指针异- 常。 hash(Object... values)：计算对象的哈希码，避免了空指">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Objects">
 <meta property="og:url" content="https://stein283036.github.io/2024/04/15/Java-Objects/">
 <meta property="og:site_name" content="倪京龙的个人博客">
-<meta property="og:description" content="个人博客">
+<meta property="og:description" content="Introductionjava.util.Objects 类是 Java 7 引入的一个实用工具类，提供了一些静态方法来操作对象。它主要用于处理对象的空值情况，避免了空指针异常。 Commonly Used Methods equals(Object a, Object b)：比较两个对象是否相等，避免了空指针异- 常。 hash(Object... values)：计算对象的哈希码，避免了空指">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-15T06:05:04.000Z">
-<meta property="article:modified_time" content="2024-04-15T06:05:36.370Z">
+<meta property="article:modified_time" content="2024-04-15T06:32:57.414Z">
 <meta property="article:author" content="倪京龙">
 <meta property="article:tag" content="Java Utils">
 <meta name="twitter:card" content="summary_large_image">
@@ -261,7 +261,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          304 字
         
       </span>
     
@@ -272,7 +272,7 @@
         
         
         
-          1 分钟
+          3 分钟
         
       </span>
     
@@ -330,7 +330,17 @@
             
               <div class="markdown-body">
                 
-                
+                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><code>java.util.Objects</code> 类是 Java 7 引入的一个实用工具类，提供了一些静态方法来操作对象。它主要用于处理对象的空值情况，避免了空指针异常。</p>
+<h2 id="Commonly-Used-Methods"><a href="#Commonly-Used-Methods" class="headerlink" title="Commonly Used Methods"></a>Commonly Used Methods</h2><ul>
+<li><code>equals(Object a, Object b)</code>：比较两个对象是否相等，避免了空指针异- 常。</li>
+<li><code>hash(Object... values)</code>：计算对象的哈希码，避免了空指针异常。</li>
+<li><code>isNull(Object obj)</code>：检查对象是否为 null。</li>
+<li><code>nonNull(Object obj)</code>：检查对象是否不为 null。</li>
+<li><code>requireNonNull(T obj)</code>：检查对象是否为 null，并抛出 - <code>NullPointerException</code> 异常。</li>
+<li><code>compare(T a, T b, Comparator&lt;? super T&gt; c)</code>：比较两个对象，如果它们的引用不相同，在使用 Comparator 实例比较。</li>
+</ul>
+<h2 id="In-Practice"><a href="#In-Practice" class="headerlink" title="In Practice"></a>In Practice</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 比较两个对象是否相等，避免了空指针异常</span><br><span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;hello&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">str2</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;world&quot;</span>;<br><span class="hljs-type">boolean</span> <span class="hljs-variable">isEqual</span> <span class="hljs-operator">=</span> Objects.equals(str1, str2);<br>System.out.println(<span class="hljs-string">&quot;Are strings equal? &quot;</span> + isEqual);<br><br><span class="hljs-comment">// 计算对象的哈希码，避免了空指针异常</span><br><span class="hljs-type">int</span> <span class="hljs-variable">hashCode</span> <span class="hljs-operator">=</span> Objects.hash(str1, str2);<br>System.out.println(<span class="hljs-string">&quot;Hash code: &quot;</span> + hashCode);<br><br><span class="hljs-comment">// 检查对象是否为 null</span><br><span class="hljs-type">Object</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br><span class="hljs-keyword">if</span> (Objects.isNull(obj)) &#123;<br>  System.out.println(<span class="hljs-string">&quot;Object is null&quot;</span>);<br>&#125;<br><br><span class="hljs-comment">// 检查对象是否不为 null</span><br>obj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>();<br><span class="hljs-keyword">if</span> (Objects.nonNull(obj)) &#123;<br>  System.out.println(<span class="hljs-string">&quot;Object is not null&quot;</span>);<br>&#125;<br><br><span class="hljs-comment">// 检查对象是否为 null，并抛出 NullPointerException 异常</span><br><span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br><span class="hljs-keyword">try</span> &#123;<br>  <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> Objects.requireNonNull(name, <span class="hljs-string">&quot;Name cannot be null&quot;</span>);<br>&#125; <span class="hljs-keyword">catch</span> (NullPointerException e) &#123;<br>  System.out.println(e.getMessage());<br>&#125;<br></code></pre></td></tr></table></figure>
+
                 
               </div>
             
@@ -424,6 +434,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/04/15/Default-Methods-In-Interface/" title="Default Methods In Interface">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Default Methods In Interface</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

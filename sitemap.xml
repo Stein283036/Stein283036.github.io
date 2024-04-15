@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://stein283036.github.io/2024/04/15/Java-8-Optional/</loc>
+    <loc>https://stein283036.github.io/2024/04/15/Default-Methods-In-Interface/</loc>
     
     <lastmod>2024-04-15</lastmod>
     
@@ -12,6 +12,15 @@
   
   <url>
     <loc>https://stein283036.github.io/2024/04/15/Java-Objects/</loc>
+    
+    <lastmod>2024-04-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://stein283036.github.io/2024/04/15/Java-8-Optional/</loc>
     
     <lastmod>2024-04-15</lastmod>
     
@@ -490,6 +499,13 @@
   
   <url>
     <loc>https://stein283036.github.io/tags/Java-Utils/</loc>
+    <lastmod>2024-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://stein283036.github.io/tags/Interface/</loc>
     <lastmod>2024-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
