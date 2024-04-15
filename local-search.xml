@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Java 8 Lambda Expressions</title>
+    <link href="/2024/04/15/Java-8-Lambda-Expressions/"/>
+    <url>/2024/04/15/Java-8-Lambda-Expressions/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Lambda 表达式是 Java 8 中引入的一个重要特性，它使得代码更加简洁、清晰和易于阅读。Lambda 表达式可以理解为一种匿名函数，它可以作为方法参数传递，也可以作为方法返回值返回。简单来说，Lambda 表达式就是对一个函数式接口中唯一抽象方法的实现。</p><h2 id="Lambda-表达式的基本语法"><a href="#Lambda-表达式的基本语法" class="headerlink" title="Lambda 表达式的基本语法"></a>Lambda 表达式的基本语法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">(parameters) -&gt; expression<br></code></pre></td></tr></table></figure><p>或</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">(parameters) -&gt; &#123; statements; &#125;<br></code></pre></td></tr></table></figure><p>其中：</p><ul><li>parameters：表示 Lambda 表达式的参数列表。</li><li>-&gt;：箭头符号，分隔参数列表和表达式或语句块。</li><li>expression：表示 Lambda 表达式的执行体，通常是一个表达式。</li><li>{ statements; }：表示 Lambda 表达式的执行体，通常是一段代码块。</li></ul><h2 id="In-Practice"><a href="#In-Practice" class="headerlink" title="In Practice"></a>In Practice</h2><h3 id="作为方法参数传递"><a href="#作为方法参数传递" class="headerlink" title="作为方法参数传递"></a>作为方法参数传递</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-keyword">import</span> java.util.function.Consumer;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LambdaExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        List&lt;String&gt; names = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        names.add(<span class="hljs-string">&quot;John&quot;</span>);<br>        names.add(<span class="hljs-string">&quot;Doe&quot;</span>);<br>        names.add(<span class="hljs-string">&quot;Alice&quot;</span>);<br><br>        <span class="hljs-comment">// 使用 Lambda 表达式作为方法参数传递</span><br>        names.forEach(name -&gt; System.out.println(<span class="hljs-string">&quot;Hello, &quot;</span> + name));<br><br>        <span class="hljs-comment">// 使用方法引用作为方法参数传递（与 Lambda 表达式等效）</span><br>        names.forEach(System.out::println);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="作为方法返回值返回"><a href="#作为方法返回值返回" class="headerlink" title="作为方法返回值返回"></a>作为方法返回值返回</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.function.BinaryOperator;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LambdaExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">// 返回 Lambda 表达式作为方法的结果</span><br>        BinaryOperator&lt;Integer&gt; add = (a, b) -&gt; a + b;<br>        System.out.println(<span class="hljs-string">&quot;Sum: &quot;</span> + add.apply(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>));<br><br>        <span class="hljs-comment">// 返回方法引用作为方法的结果（与 Lambda 表达式等效）</span><br>        BinaryOperator&lt;Integer&gt; subtract = Math::subtractExact;<br>        System.out.println(<span class="hljs-string">&quot;Difference: &quot;</span> + subtract.apply(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java 8</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Java 8 java.time</title>
     <link href="/2024/04/15/Java-8-java-time/"/>
     <url>/2024/04/15/Java-8-java-time/</url>

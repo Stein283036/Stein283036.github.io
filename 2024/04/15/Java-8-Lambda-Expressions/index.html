@@ -16,23 +16,22 @@
   <meta name="author" content="倪京龙">
   <meta name="keywords" content="Technology,Life,Programming,Java,JavaScript,System Design,MySQL,Spring,倪京龙,Linux">
   
-    <meta name="description" content="IntroducionJava 8 中引入了 java.time 包，其中包含了一组全新的日期时间类，用于替代旧的 java.util.Date 和 java.util.Calendar 类。新的日期时间类提供了更丰富、更灵活和更易于使用的功能，同时修复了旧的日期时间设计中存在的一些缺陷，比如线程不安全性、可变性、构造日期的 year 和 month 设计不合理。 Class Hierarchy">
+    <meta name="description" content="IntroductionLambda 表达式是 Java 8 中引入的一个重要特性，它使得代码更加简洁、清晰和易于阅读。Lambda 表达式可以理解为一种匿名函数，它可以作为方法参数传递，也可以作为方法返回值返回。简单来说，Lambda 表达式就是对一个函数式接口中唯一抽象方法的实现。 Lambda 表达式的基本语法1(parameters) -&gt; expression  或 1(param">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 8 java.time">
-<meta property="og:url" content="https://stein283036.github.io/2024/04/15/Java-8-java-time/">
+<meta property="og:title" content="Java 8 Lambda Expressions">
+<meta property="og:url" content="https://stein283036.github.io/2024/04/15/Java-8-Lambda-Expressions/">
 <meta property="og:site_name" content="倪京龙的个人博客">
-<meta property="og:description" content="IntroducionJava 8 中引入了 java.time 包，其中包含了一组全新的日期时间类，用于替代旧的 java.util.Date 和 java.util.Calendar 类。新的日期时间类提供了更丰富、更灵活和更易于使用的功能，同时修复了旧的日期时间设计中存在的一些缺陷，比如线程不安全性、可变性、构造日期的 year 和 month 设计不合理。 Class Hierarchy">
+<meta property="og:description" content="IntroductionLambda 表达式是 Java 8 中引入的一个重要特性，它使得代码更加简洁、清晰和易于阅读。Lambda 表达式可以理解为一种匿名函数，它可以作为方法参数传递，也可以作为方法返回值返回。简单来说，Lambda 表达式就是对一个函数式接口中唯一抽象方法的实现。 Lambda 表达式的基本语法1(parameters) -&gt; expression  或 1(param">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-15T07:26:42.000Z">
-<meta property="article:modified_time" content="2024-04-15T08:11:00.898Z">
+<meta property="article:published_time" content="2024-04-15T08:28:44.000Z">
+<meta property="article:modified_time" content="2024-04-15T08:35:44.257Z">
 <meta property="article:author" content="倪京龙">
 <meta property="article:tag" content="Java 8">
-<meta property="article:tag" content="Java Date Time">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Java 8 java.time - 倪京龙的个人博客</title>
+  <title>Java 8 Lambda Expressions - 倪京龙的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -239,7 +238,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Java 8 java.time"></span>
+            <span id="subtitle" data-typed-text="Java 8 Lambda Expressions"></span>
           
         </div>
 
@@ -250,7 +249,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-15 15:26" pubdate>
+        <time datetime="2024-04-15 16:28" pubdate>
           2024年4月15日 下午
         </time>
       </span>
@@ -262,7 +261,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          489 字
+          375 字
         
       </span>
     
@@ -273,7 +272,7 @@
         
         
         
-          5 分钟
+          4 分钟
         
       </span>
     
@@ -318,7 +317,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Java 8 java.time</h1>
+            <h1 id="seo-header">Java 8 Lambda Expressions</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
@@ -331,23 +330,22 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Introducion"><a href="#Introducion" class="headerlink" title="Introducion"></a>Introducion</h2><p>Java 8 中引入了 <code>java.time</code> 包，其中包含了一组全新的日期时间类，用于替代旧的 <code>java.util.Date</code> 和 <code>java.util.Calendar</code> 类。新的日期时间类提供了更丰富、更灵活和更易于使用的功能，同时修复了旧的日期时间设计中存在的一些缺陷，比如线程不安全性、可变性、构造日期的 year 和 month 设计不合理。</p>
-<h2 id="Class-Hierarchy"><a href="#Class-Hierarchy" class="headerlink" title="Class Hierarchy"></a>Class Hierarchy</h2><ul>
-<li><code>LocalDate</code>： 表示一个日期，不包含时间信息。</li>
-<li><code>LocalTime</code>： 表示一个时间，不包含日期信息。</li>
-<li><code>LocalDateTime</code>： 表示日期和时间，不包含时区信息。</li>
-<li><code>ZonedDateTime</code>： 表示日期、时间和时区信息。</li>
-<li><code>Duration</code>： 表示一个时间段，以秒和纳秒为单位。</li>
-<li><code>Period</code>： 表示一个日期段，以年、月、日为单位。</li>
-<li><code>DateTimeFormatter</code>：日期时间格式化。</li>
+                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Lambda 表达式是 Java 8 中引入的一个重要特性，它使得代码更加简洁、清晰和易于阅读。Lambda 表达式可以理解为一种匿名函数，它可以作为方法参数传递，也可以作为方法返回值返回。简单来说，Lambda 表达式就是对一个函数式接口中唯一抽象方法的实现。</p>
+<h2 id="Lambda-表达式的基本语法"><a href="#Lambda-表达式的基本语法" class="headerlink" title="Lambda 表达式的基本语法"></a>Lambda 表达式的基本语法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">(parameters) -&gt; expression<br></code></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">(parameters) -&gt; &#123; statements; &#125;<br></code></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li>parameters：表示 Lambda 表达式的参数列表。</li>
+<li>-&gt;：箭头符号，分隔参数列表和表达式或语句块。</li>
+<li>expression：表示 Lambda 表达式的执行体，通常是一个表达式。</li>
+<li>{ statements; }：表示 Lambda 表达式的执行体，通常是一段代码块。</li>
 </ul>
-<h2 id="In-practice"><a href="#In-practice" class="headerlink" title="In practice"></a>In practice</h2><h3 id="LocalDate"><a href="#LocalDate" class="headerlink" title="LocalDate"></a>LocalDate</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LocalDateExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">// 创建指定日期</span><br>        <span class="hljs-type">LocalDate</span> <span class="hljs-variable">date</span> <span class="hljs-operator">=</span> LocalDate.of(<span class="hljs-number">2022</span>, <span class="hljs-number">4</span>, <span class="hljs-number">10</span>);<br>        System.out.println(<span class="hljs-string">&quot;Specified date: &quot;</span> + date);<br><br>        <span class="hljs-comment">// 解析日期字符串</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">dateString</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2022-04-10&quot;</span>;<br>        <span class="hljs-type">LocalDate</span> <span class="hljs-variable">parsedDate</span> <span class="hljs-operator">=</span> LocalDate.parse(dateString);<br>        System.out.println(<span class="hljs-string">&quot;Parsed date: &quot;</span> + parsedDate);<br><br>        <span class="hljs-comment">// 使用自定义格式解析日期字符串</span><br>        <span class="hljs-type">DateTimeFormatter</span> <span class="hljs-variable">formatter</span> <span class="hljs-operator">=</span> DateTimeFormatter.ofPattern(<span class="hljs-string">&quot;yyyy/MM/dd&quot;</span>);<br>        <span class="hljs-type">LocalDate</span> <span class="hljs-variable">customParsedDate</span> <span class="hljs-operator">=</span> LocalDate.parse(<span class="hljs-string">&quot;2022/04/10&quot;</span>, formatter);<br>        System.out.println(<span class="hljs-string">&quot;Custom parsed date: &quot;</span> + customParsedDate);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="In-Practice"><a href="#In-Practice" class="headerlink" title="In Practice"></a>In Practice</h2><h3 id="作为方法参数传递"><a href="#作为方法参数传递" class="headerlink" title="作为方法参数传递"></a>作为方法参数传递</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-keyword">import</span> java.util.function.Consumer;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LambdaExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        List&lt;String&gt; names = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        names.add(<span class="hljs-string">&quot;John&quot;</span>);<br>        names.add(<span class="hljs-string">&quot;Doe&quot;</span>);<br>        names.add(<span class="hljs-string">&quot;Alice&quot;</span>);<br><br>        <span class="hljs-comment">// 使用 Lambda 表达式作为方法参数传递</span><br>        names.forEach(name -&gt; System.out.println(<span class="hljs-string">&quot;Hello, &quot;</span> + name));<br><br>        <span class="hljs-comment">// 使用方法引用作为方法参数传递（与 Lambda 表达式等效）</span><br>        names.forEach(System.out::println);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="LocalTime"><a href="#LocalTime" class="headerlink" title="LocalTime"></a>LocalTime</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.time.LocalTime;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LocalTimeExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">// 创建指定时间</span><br>        <span class="hljs-type">LocalTime</span> <span class="hljs-variable">time</span> <span class="hljs-operator">=</span> LocalTime.of(<span class="hljs-number">15</span>, <span class="hljs-number">30</span>, <span class="hljs-number">45</span>);<br>        System.out.println(<span class="hljs-string">&quot;Specified time: &quot;</span> + time);<br><br>        <span class="hljs-comment">// 解析时间字符串</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">timeString</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;15:30:45&quot;</span>;<br>        <span class="hljs-type">LocalTime</span> <span class="hljs-variable">parsedTime</span> <span class="hljs-operator">=</span> LocalTime.parse(timeString);<br>        System.out.println(<span class="hljs-string">&quot;Parsed time: &quot;</span> + parsedTime);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="LocalDateTime"><a href="#LocalDateTime" class="headerlink" title="LocalDateTime"></a>LocalDateTime</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.time.LocalDateTime;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LocalDateTimeExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">// 创建指定日期和时间</span><br>        <span class="hljs-type">LocalDateTime</span> <span class="hljs-variable">dateTime</span> <span class="hljs-operator">=</span> LocalDateTime.of(<span class="hljs-number">2022</span>, <span class="hljs-number">4</span>, <span class="hljs-number">10</span>, <span class="hljs-number">15</span>, <span class="hljs-number">30</span>, <span class="hljs-number">45</span>);<br>        System.out.println(<span class="hljs-string">&quot;Specified date and time: &quot;</span> + dateTime);<br><br>        <span class="hljs-comment">// 解析日期时间字符串</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">dateTimeString</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;2022-04-10T15:30:45&quot;</span>;<br>        <span class="hljs-type">LocalDateTime</span> <span class="hljs-variable">parsedDateTime</span> <span class="hljs-operator">=</span> LocalDateTime.parse(dateTimeString);<br>        System.out.println(<span class="hljs-string">&quot;Parsed date and time: &quot;</span> + parsedDateTime);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="DateTimeFormatter"><a href="#DateTimeFormatter" class="headerlink" title="DateTimeFormatter"></a>DateTimeFormatter</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.time.LocalDateTime;<br><span class="hljs-keyword">import</span> java.time.format.DateTimeFormatter;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DateTimeFormatterExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">// 创建当前日期和时间</span><br>        <span class="hljs-type">LocalDateTime</span> <span class="hljs-variable">now</span> <span class="hljs-operator">=</span> LocalDateTime.now();<br><br>        <span class="hljs-comment">// 创建自定义格式的 DateTimeFormatter</span><br>        <span class="hljs-type">DateTimeFormatter</span> <span class="hljs-variable">formatter</span> <span class="hljs-operator">=</span> DateTimeFormatter.ofPattern(<span class="hljs-string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);<br><br>        <span class="hljs-comment">// 格式化日期时间</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">formattedDateTime</span> <span class="hljs-operator">=</span> now.format(formatter);<br>        System.out.println(<span class="hljs-string">&quot;Formatted date and time: &quot;</span> + formattedDateTime);<br><br>        <span class="hljs-comment">// 解析日期时间字符串</span><br>        <span class="hljs-type">LocalDateTime</span> <span class="hljs-variable">parsedDateTime</span> <span class="hljs-operator">=</span> LocalDateTime.parse(formattedDateTime, formatter);<br>        System.out.println(<span class="hljs-string">&quot;Parsed date and time: &quot;</span> + parsedDateTime);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="作为方法返回值返回"><a href="#作为方法返回值返回" class="headerlink" title="作为方法返回值返回"></a>作为方法返回值返回</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.function.BinaryOperator;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LambdaExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">// 返回 Lambda 表达式作为方法的结果</span><br>        BinaryOperator&lt;Integer&gt; add = (a, b) -&gt; a + b;<br>        System.out.println(<span class="hljs-string">&quot;Sum: &quot;</span> + add.apply(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>));<br><br>        <span class="hljs-comment">// 返回方法引用作为方法的结果（与 Lambda 表达式等效）</span><br>        BinaryOperator&lt;Integer&gt; subtract = Math::subtractExact;<br>        System.out.println(<span class="hljs-string">&quot;Difference: &quot;</span> + subtract.apply(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -383,8 +381,6 @@
       
         <a href="/tags/Java-8/" class="print-no-link">#Java 8</a>
       
-        <a href="/tags/Java-Date-Time/" class="print-no-link">#Java Date Time</a>
-      
     </div>
   
 </div>
@@ -395,8 +391,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Java 8 java.time</div>
-      <div>https://stein283036.github.io/2024/04/15/Java-8-java-time/</div>
+      <div>Java 8 Lambda Expressions</div>
+      <div>https://stein283036.github.io/2024/04/15/Java-8-Lambda-Expressions/</div>
     </div>
     <div class="license-meta">
       
@@ -445,18 +441,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/15/Java-8-Lambda-Expressions/" title="Java 8 Lambda Expressions">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Java 8 Lambda Expressions</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/15/Java-8-Repeating-Annotations/" title="Java 8 Repeating Annotations">
-                        <span class="hidden-mobile">Java 8 Repeating Annotations</span>
+                      <a href="/2024/04/15/Java-8-java-time/" title="Java 8 java.time">
+                        <span class="hidden-mobile">Java 8 java.time</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
