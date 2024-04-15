@@ -16,22 +16,23 @@
   <meta name="author" content="倪京龙">
   <meta name="keywords" content="Technology,Life,Programming,Java,JavaScript,System Design,MySQL,Spring,倪京龙,Linux">
   
-    <meta name="description" content="IntroductionLambda 表达式是 Java 8 中引入的一个重要特性，它使得代码更加简洁、清晰和易于阅读。Lambda 表达式可以理解为一种匿名函数，它可以作为方法参数传递，也可以作为方法返回值返回。简单来说，Lambda 表达式就是对一个函数式接口中唯一抽象方法的实现。 Lambda 表达式的基本语法1(parameters) -&gt; expression  或 1(param">
+    <meta name="description" content="Introduction在 Java 8 中，函数式接口是一个只有一个抽象方法的接口。函数式接口可以使用 Lambda 表达式来创建实例，从而简化了代码编写。Java 8 提供了 @FunctionalInterface 注解来标识函数式接口，以便编译器检查该接口是否符合函数式接口的定义。 函数式接口通常用在集合框架中和 Stream 流中。 12345678910111213@Functiona">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 8 Lambda Expressions">
-<meta property="og:url" content="https://stein283036.github.io/2024/04/15/Java-8-Lambda-Expressions/">
+<meta property="og:title" content="Java 8 Functional Interfaces">
+<meta property="og:url" content="https://stein283036.github.io/2024/04/15/Java-8-Functional-Interfaces/">
 <meta property="og:site_name" content="倪京龙的个人博客">
-<meta property="og:description" content="IntroductionLambda 表达式是 Java 8 中引入的一个重要特性，它使得代码更加简洁、清晰和易于阅读。Lambda 表达式可以理解为一种匿名函数，它可以作为方法参数传递，也可以作为方法返回值返回。简单来说，Lambda 表达式就是对一个函数式接口中唯一抽象方法的实现。 Lambda 表达式的基本语法1(parameters) -&gt; expression  或 1(param">
+<meta property="og:description" content="Introduction在 Java 8 中，函数式接口是一个只有一个抽象方法的接口。函数式接口可以使用 Lambda 表达式来创建实例，从而简化了代码编写。Java 8 提供了 @FunctionalInterface 注解来标识函数式接口，以便编译器检查该接口是否符合函数式接口的定义。 函数式接口通常用在集合框架中和 Stream 流中。 12345678910111213@Functiona">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-15T08:28:44.000Z">
-<meta property="article:modified_time" content="2024-04-15T09:00:26.171Z">
+<meta property="article:published_time" content="2024-04-15T09:01:12.000Z">
+<meta property="article:modified_time" content="2024-04-15T09:51:26.691Z">
 <meta property="article:author" content="倪京龙">
 <meta property="article:tag" content="Java 8">
+<meta property="article:tag" content="Java Interfaces">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Java 8 Lambda Expressions - 倪京龙的个人博客</title>
+  <title>Java 8 Functional Interfaces - 倪京龙的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -238,7 +239,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Java 8 Lambda Expressions"></span>
+            <span id="subtitle" data-typed-text="Java 8 Functional Interfaces"></span>
           
         </div>
 
@@ -249,7 +250,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-15 16:28" pubdate>
+        <time datetime="2024-04-15 17:01" pubdate>
           2024年4月15日 下午
         </time>
       </span>
@@ -261,7 +262,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          490 字
+          718 字
         
       </span>
     
@@ -272,7 +273,7 @@
         
         
         
-          5 分钟
+          6 分钟
         
       </span>
     
@@ -317,7 +318,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Java 8 Lambda Expressions</h1>
+            <h1 id="seo-header">Java 8 Functional Interfaces</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
@@ -330,26 +331,46 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Lambda 表达式是 Java 8 中引入的一个重要特性，它使得代码更加简洁、清晰和易于阅读。Lambda 表达式可以理解为一种匿名函数，它可以作为方法参数传递，也可以作为方法返回值返回。简单来说，Lambda 表达式就是对一个函数式接口中唯一抽象方法的实现。</p>
-<h2 id="Lambda-表达式的基本语法"><a href="#Lambda-表达式的基本语法" class="headerlink" title="Lambda 表达式的基本语法"></a>Lambda 表达式的基本语法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">(parameters) -&gt; expression<br></code></pre></td></tr></table></figure>
+                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>在 Java 8 中，函数式接口是一个只有一个抽象方法的接口。函数式接口可以使用 Lambda 表达式来创建实例，从而简化了代码编写。Java 8 提供了 <code>@FunctionalInterface</code> 注解来标识函数式接口，以便编译器检查该接口是否符合函数式接口的定义。</p>
+<p>函数式接口通常用在集合框架中和 Stream 流中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@FunctionalInterface</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">MyFunctionalInterface</span> &#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">myMethod</span><span class="hljs-params">()</span>; <span class="hljs-comment">// 唯一的抽象方法</span><br><br>    <span class="hljs-comment">// 可以有默认方法、静态方法和 Object 类中的方法（equals、hashCode、toString）</span><br>    <span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">defaultMethod</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Default method&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">staticMethod</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Static method&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>或</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">(parameters) -&gt; &#123; statements; &#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Supplier"><a href="#Supplier" class="headerlink" title="Supplier"></a>Supplier</h2><p>一种通用的返回结果的 <code>Supplier</code>，抽象方法是 <code>T get()</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@FunctionalInterface</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Supplier</span>&lt;T&gt; &#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Gets a result.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> a result</span><br><span class="hljs-comment">     */</span><br>    T <span class="hljs-title function_">get</span><span class="hljs-params">()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>其中：</p>
-<ul>
-<li>parameters：表示 Lambda 表达式的参数列表。</li>
-<li>-&gt;：箭头符号，分隔参数列表和表达式或语句块。</li>
-<li>expression：表示 Lambda 表达式的执行体，通常是一个表达式。</li>
-<li>{ statements; }：表示 Lambda 表达式的执行体，通常是一段代码块。</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> &#123;<br>  String firstName;<br>  String lastName;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-title function_">Person</span><span class="hljs-params">()</span> &#123;<br><br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-title function_">Person</span><span class="hljs-params">(String firstName, String lastName)</span> &#123;<br>    <span class="hljs-built_in">this</span>.firstName = firstName;\<br>    <span class="hljs-built_in">this</span>.lastName = lastName;<br>  &#125;<br><br>  <span class="hljs-comment">// getters and setters</span><br>&#125;<br><br>Supplier&lt;Person&gt; personSupplier = Person::<span class="hljs-keyword">new</span>;<br><span class="hljs-type">Person</span> <span class="hljs-variable">person</span> <span class="hljs-operator">=</span> personSupplier.get();<br></code></pre></td></tr></table></figure>
+
+<h3 id="Specializations-of-Supplier"><a href="#Specializations-of-Supplier" class="headerlink" title="Specializations of Supplier"></a>Specializations of Supplier</h3><ul>
+<li><code>IntSupplier</code>：返回 int 值的 Supplier。</li>
+<li><code>LongSupplier</code>：返回 long 值的 Supplier。</li>
+<li><code>DoubleSupplier</code>：返回 double 值的 Supplier。</li>
+<li><code>BooleanSuppiler</code>：返回 boolean 值的 Supplier。</li>
 </ul>
-<h2 id="In-Practice"><a href="#In-Practice" class="headerlink" title="In Practice"></a>In Practice</h2><h3 id="作为方法参数传递"><a href="#作为方法参数传递" class="headerlink" title="作为方法参数传递"></a>作为方法参数传递</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-keyword">import</span> java.util.function.Consumer;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LambdaExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        List&lt;String&gt; names = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        names.add(<span class="hljs-string">&quot;John&quot;</span>);<br>        names.add(<span class="hljs-string">&quot;Doe&quot;</span>);<br>        names.add(<span class="hljs-string">&quot;Alice&quot;</span>);<br><br>        <span class="hljs-comment">// 使用 Lambda 表达式作为方法参数传递</span><br>        names.forEach(name -&gt; System.out.println(<span class="hljs-string">&quot;Hello, &quot;</span> + name));<br><br>        <span class="hljs-comment">// 使用方法引用作为方法参数传递（与 Lambda 表达式等效）</span><br>        names.forEach(System.out::println);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h2><p>表示接收一个输入参数并且不返回结果的操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@FunctionalInterface</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Consumer</span>&lt;T&gt; &#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">accept</span><span class="hljs-params">(T t)</span>;<br><br>    <span class="hljs-keyword">default</span> Consumer&lt;T&gt; <span class="hljs-title function_">andThen</span><span class="hljs-params">(Consumer&lt;? <span class="hljs-built_in">super</span> T&gt; after)</span> &#123;<br>        Objects.requireNonNull(after);<br>        <span class="hljs-keyword">return</span> (T t) -&gt; &#123; accept(t); after.accept(t); &#125;;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="作为方法返回值返回"><a href="#作为方法返回值返回" class="headerlink" title="作为方法返回值返回"></a>作为方法返回值返回</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.function.BinaryOperator;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LambdaExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">// 返回 Lambda 表达式作为方法的结果</span><br>        BinaryOperator&lt;Integer&gt; add = (a, b) -&gt; a + b;<br>        System.out.println(<span class="hljs-string">&quot;Sum: &quot;</span> + add.apply(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>));<br><br>        <span class="hljs-comment">// 返回方法引用作为方法的结果（与 Lambda 表达式等效）</span><br>        BinaryOperator&lt;Integer&gt; subtract = Math::subtractExact;<br>        System.out.println(<span class="hljs-string">&quot;Difference: &quot;</span> + subtract.apply(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Specializations-of-Consumers"><a href="#Specializations-of-Consumers" class="headerlink" title="Specializations of Consumers"></a>Specializations of Consumers</h3><ul>
+<li><code>IntConsumer</code>：表示一个接收 单个 int 值不返回结果的操作。</li>
+<li><code>DoubleConsumer</code>：表示一个接收 单个 double 值不返回结果的操作。</li>
+<li><code>LongConsumer</code>：表示一个接收 单个 long 值不返回结果的操作。</li>
+<li><code>ObjIntConsumer</code>：表示一个接收一个对象值和一个 int 值不返回结果的操作。</li>
+<li><code>ObjDoubleConsumer</code>：表示一个接收一个对象值和一个 double 值不返回结果的操作。</li>
+<li><code>ObjLongConsumer</code>：表示一个接收一个对象值和一个 long 值不返回结果的操作。</li>
+<li><code>BiConsumer</code>：表示一个接收两个输入参数（泛型参数）不返回结果的操作。</li>
+</ul>
+<h2 id="Predicate"><a href="#Predicate" class="headerlink" title="Predicate"></a>Predicate</h2><p>表示基于一个参数（泛型参数）的 Predicate。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@FunctionalInterface</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Predicate</span>&lt;T&gt; &#123;<br>    <span class="hljs-type">boolean</span> <span class="hljs-title function_">test</span><span class="hljs-params">(T t)</span>;<br><br>    <span class="hljs-keyword">default</span> Predicate&lt;T&gt; <span class="hljs-title function_">and</span><span class="hljs-params">(Predicate&lt;? <span class="hljs-built_in">super</span> T&gt; other)</span> &#123;<br>        Objects.requireNonNull(other);<br>        <span class="hljs-keyword">return</span> (t) -&gt; test(t) &amp;&amp; other.test(t);<br>    &#125;<br><br>    <span class="hljs-keyword">default</span> Predicate&lt;T&gt; <span class="hljs-title function_">negate</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> (t) -&gt; !test(t);<br>    &#125;<br><br>    <span class="hljs-keyword">default</span> Predicate&lt;T&gt; <span class="hljs-title function_">or</span><span class="hljs-params">(Predicate&lt;? <span class="hljs-built_in">super</span> T&gt; other)</span> &#123;<br>        Objects.requireNonNull(other);<br>        <span class="hljs-keyword">return</span> (t) -&gt; test(t) || other.test(t);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="Lambda-Scope"><a href="#Lambda-Scope" class="headerlink" title="Lambda Scope"></a>Lambda Scope</h2><p>在 Lambda 作用域中访问外部变量和再匿名内部类中类似，既可以访问 final 变量也可以访问实例和静态字段。</p>
-<p>但与匿名内部类不同的是 外部变量比如下面的 num 不一定必须是 final 修饰 但是 num 必须隐式是 final 即不可修改的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// final int num = 1;</span><br><span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-comment">// int finalNum = num;</span><br><span class="hljs-comment">// Variable used in lambda expression should be final or effectively final</span><br>Converter&lt;Integer, String&gt; converter = (from -&gt; String.valueOf(from + num));<br><span class="hljs-type">String</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> converter.convert(<span class="hljs-number">2</span>);<br>System.out.println(<span class="hljs-string">&quot;s1 = &quot;</span> + s1);<br><span class="hljs-comment">// num = 3;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">Predicate&lt;String&gt; predicate = str -&gt; str.length() &gt; <span class="hljs-number">0</span>;<br>predicate.test(<span class="hljs-string">&quot;Hello World&quot;</span>);<br>predicate.negate().test(<span class="hljs-string">&quot;foo&quot;</span>);<br><br>Predicate&lt;String&gt; isEmpty = String::isEmpty;<br>Predicate&lt;String&gt; isNotEmpty = isEmpty.negate();<br></code></pre></td></tr></table></figure>
+
+<h3 id="Specializations-of-Predicate"><a href="#Specializations-of-Predicate" class="headerlink" title="Specializations of Predicate"></a>Specializations of Predicate</h3><ul>
+<li><code>IntPredicate</code>：表示一个基于 int 值的 Predicate。</li>
+<li><code>LongPredicate</code>：表示一个基于 long 值的 Predicate。</li>
+<li><code>DoublePredicate</code>：表示一个基于 double 值的 Predicate。</li>
+<li><code>BiPredicate</code>：表示一个基于两个参数的 Predicate。</li>
+</ul>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><p>表示一个接收一个参数并产生一个结果的函数，Function 函数式接口用来做 Stream 流处理 filter-map-reduce 中的 Map 类型转换。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@FunctionalInterface</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Function</span>&lt;T, R&gt; &#123;<br>    R <span class="hljs-title function_">apply</span><span class="hljs-params">(T t)</span>;<br><br>    <span class="hljs-keyword">default</span> &lt;V&gt; Function&lt;V, R&gt; <span class="hljs-title function_">compose</span><span class="hljs-params">(Function&lt;? <span class="hljs-built_in">super</span> V, ? extends T&gt; before)</span> &#123;<br>        Objects.requireNonNull(before);<br>        <span class="hljs-keyword">return</span> (V v) -&gt; apply(before.apply(v));<br>    &#125;<br><br>    <span class="hljs-keyword">default</span> &lt;V&gt; Function&lt;T, V&gt; <span class="hljs-title function_">andThen</span><span class="hljs-params">(Function&lt;? <span class="hljs-built_in">super</span> R, ? extends V&gt; after)</span> &#123;<br>        Objects.requireNonNull(after);<br>        <span class="hljs-keyword">return</span> (T t) -&gt; after.apply(apply(t));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -385,6 +406,8 @@
       
         <a href="/tags/Java-8/" class="print-no-link">#Java 8</a>
       
+        <a href="/tags/Java-Interfaces/" class="print-no-link">#Java Interfaces</a>
+      
     </div>
   
 </div>
@@ -395,8 +418,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Java 8 Lambda Expressions</div>
-      <div>https://stein283036.github.io/2024/04/15/Java-8-Lambda-Expressions/</div>
+      <div>Java 8 Functional Interfaces</div>
+      <div>https://stein283036.github.io/2024/04/15/Java-8-Functional-Interfaces/</div>
     </div>
     <div class="license-meta">
       
@@ -445,18 +468,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/15/Java-8-Functional-Interfaces/" title="Java 8 Functional Interfaces">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Java 8 Functional Interfaces</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/15/Java-8-java-time/" title="Java 8 java.time">
-                        <span class="hidden-mobile">Java 8 java.time</span>
+                      <a href="/2024/04/15/Java-8-Lambda-Expressions/" title="Java 8 Lambda Expressions">
+                        <span class="hidden-mobile">Java 8 Lambda Expressions</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
