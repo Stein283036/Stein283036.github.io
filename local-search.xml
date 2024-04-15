@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>Java Objects</title>
+    <link href="/2024/04/15/Java-Objects/"/>
+    <url>/2024/04/15/Java-Objects/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java Utils</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Java 8 Optional</title>
+    <link href="/2024/04/15/Java-8-Optional/"/>
+    <url>/2024/04/15/Java-8-Optional/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><code>Optional</code> 类是 Java 8 引入的一个容器类，用于解决可能存在空值的情况。它提供了一种优雅的方式来处理可能为空的对象，避免了空指针异常。</p><h2 id="Commonly-Used-Methods"><a href="#Commonly-Used-Methods" class="headerlink" title="Commonly Used Methods"></a>Commonly Used Methods</h2><ul><li><code>of(T value)</code>：创建一个包含非空对象的 <code>Optional</code> 实例。</li><li><code>ofNullable(T value)</code>：创建一个可能为空的 <code>Optional</code> 实例。</li><li><code>isPresent()</code>：检查 <code>Optional</code> 实例中是否包含非空对象。</li><li><code>get()</code>：如果有值则返回，否则抛出 <code>NoSuchElementException</code> 异常。</li><li><code>ifPresent(Consumer&lt;? super T&gt; consumer)</code>：如果 <code>Optional</code> 实例中包含非空对象，则执行指定的操作。</li><li><code>orElse(T other)</code>：如果 <code>Optional</code> 实例中包含非空对象，则返回该对象，否则返回指定的默认值。</li><li><code>orElseGet(Supplier&lt;? extends T&gt; other)</code>：如果 <code>Optional</code> 实例中包含非空对象，则返回该对象，否则通过指定的供应商函数获取默认值。</li><li><code>orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier)</code>：如果 <code>Optional</code> 实例中包含非空对象，则返回该对象，否则抛出指定的异常。</li><li><code>empty()</code>：创建空的 Optional 对象。</li></ul><h2 id="In-practice"><a href="#In-practice" class="headerlink" title="In practice"></a>In practice</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 创建一个值非 null 的 Optional 对象</span><br>Optional&lt;String&gt; stein = Optional.of(<span class="hljs-string">&quot;stein&quot;</span>);<br><span class="hljs-comment">// 创建一个值为 null 的Optional 对象</span><br>Optional&lt;String&gt; nullable = Optional.ofNullable(<span class="hljs-literal">null</span>); <span class="hljs-comment">// ofNullable 实际调用 empty() 静态方法 创建空的 Optional 对象：return value == null ? empty() : of(value);</span><br><span class="hljs-comment">// 如果 stein 容器的值不为空则输出值</span><br>stein.ifPresent(System.out::println);<br><span class="hljs-comment">// 如果 nullable 容器不为空则输出值</span><br>nullable.ifPresent(System.out::println);<br><span class="hljs-comment">// 如果 Optional 实例中包含非空对象，返回值，否则返回指定的默认值</span><br><span class="hljs-type">String</span> <span class="hljs-variable">defaultName</span> <span class="hljs-operator">=</span> nullable.orElse(<span class="hljs-string">&quot;default&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;defaultName = &quot;</span> + defaultName);<br><span class="hljs-comment">// 传给 orElseGet() 一个 Supplier 函数式接口的 lambda 表达式实现</span><br><span class="hljs-type">String</span> <span class="hljs-variable">defaultName</span> <span class="hljs-operator">=</span> nullable.orElseGet(() -&gt; <span class="hljs-string">&quot;defaultName&quot;</span>);<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java 8</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Vocabulary 19</title>
     <link href="/2024/04/01/Vocabulary-19/"/>
     <url>/2024/04/01/Vocabulary-19/</url>
