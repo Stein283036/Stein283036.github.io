@@ -16,23 +16,23 @@
   <meta name="author" content="倪京龙">
   <meta name="keywords" content="Technology,Life,Programming,Java,JavaScript,System Design,MySQL,Spring,倪京龙,Linux">
   
-    <meta name="description" content="Introduction">
+    <meta name="description" content="IntroductionJava 8 引入了可重复注解 @Repeatable 的功能，允许相同的注解可以在同一个元素上多次使用。 In Practice定义可重复注解及其容器注解12345678910111213141516import java.lang.annotation.*;&#x2F;&#x2F; 定义可重复注解@Repeatable(Authors.class) &#x2F;&#x2F; 传入容器注解作为参数@Retent">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Default Methods In Interface">
-<meta property="og:url" content="https://stein283036.github.io/2024/04/15/Default-Methods-In-Interface/">
+<meta property="og:title" content="Java 8 Repeating Annotations">
+<meta property="og:url" content="https://stein283036.github.io/2024/04/15/Java-8-Repeating-Annotations/">
 <meta property="og:site_name" content="倪京龙的个人博客">
-<meta property="og:description" content="Introduction">
+<meta property="og:description" content="IntroductionJava 8 引入了可重复注解 @Repeatable 的功能，允许相同的注解可以在同一个元素上多次使用。 In Practice定义可重复注解及其容器注解12345678910111213141516import java.lang.annotation.*;&#x2F;&#x2F; 定义可重复注解@Repeatable(Authors.class) &#x2F;&#x2F; 传入容器注解作为参数@Retent">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-15T06:34:20.000Z">
-<meta property="article:modified_time" content="2024-04-15T06:34:40.408Z">
+<meta property="article:published_time" content="2024-04-15T06:50:02.000Z">
+<meta property="article:modified_time" content="2024-04-15T06:55:43.266Z">
 <meta property="article:author" content="倪京龙">
+<meta property="article:tag" content="Java Annotations">
 <meta property="article:tag" content="Java 8">
-<meta property="article:tag" content="Interface">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Default Methods In Interface - 倪京龙的个人博客</title>
+  <title>Java 8 Repeating Annotations - 倪京龙的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -239,7 +239,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Default Methods In Interface"></span>
+            <span id="subtitle" data-typed-text="Java 8 Repeating Annotations"></span>
           
         </div>
 
@@ -250,7 +250,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-04-15 14:34" pubdate>
+        <time datetime="2024-04-15 14:50" pubdate>
           2024年4月15日 下午
         </time>
       </span>
@@ -262,7 +262,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1 字
+          211 字
         
       </span>
     
@@ -273,7 +273,7 @@
         
         
         
-          1 分钟
+          2 分钟
         
       </span>
     
@@ -318,7 +318,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Default Methods In Interface</h1>
+            <h1 id="seo-header">Java 8 Repeating Annotations</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
@@ -331,7 +331,13 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2>
+                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Java 8 引入了可重复注解 <code>@Repeatable</code> 的功能，允许相同的注解可以在同一个元素上多次使用。</p>
+<h2 id="In-Practice"><a href="#In-Practice" class="headerlink" title="In Practice"></a>In Practice</h2><h3 id="定义可重复注解及其容器注解"><a href="#定义可重复注解及其容器注解" class="headerlink" title="定义可重复注解及其容器注解"></a>定义可重复注解及其容器注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.lang.annotation.*;<br><br><span class="hljs-comment">// 定义可重复注解</span><br><span class="hljs-meta">@Repeatable(Authors.class)</span> <span class="hljs-comment">// 传入容器注解作为参数</span><br><span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="hljs-meta">@Target(ElementType.TYPE)</span><br><span class="hljs-meta">@interface</span> Author &#123;<br>    String <span class="hljs-title function_">name</span><span class="hljs-params">()</span>;<br>&#125;<br><br><span class="hljs-comment">// 定义容器注解</span><br><span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="hljs-meta">@Target(ElementType.TYPE)</span><br><span class="hljs-meta">@interface</span> Authors &#123;<br>    Author[] value();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="在类上使用可重复注解"><a href="#在类上使用可重复注解" class="headerlink" title="在类上使用可重复注解"></a>在类上使用可重复注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Author(name = &quot;John&quot;)</span><br><span class="hljs-meta">@Author(name = &quot;Doe&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Book</span> &#123;<br>    <span class="hljs-comment">// 类的内容...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="获取可重复注解的值"><a href="#获取可重复注解的值" class="headerlink" title="获取可重复注解的值"></a>获取可重复注解的值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.lang.annotation.Annotation;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">// 获取类上的 Authors 注解，这里需要获取容器注解 Authors 而不是 Author 注解</span><br>        <span class="hljs-type">Authors</span> <span class="hljs-variable">authors</span> <span class="hljs-operator">=</span> Book.class.getAnnotation(Authors.class);<br>        <span class="hljs-comment">// 获取 Authors 注解中的所有 Author 注解</span><br>        Author[] authorArray = authors.value();<br>        <span class="hljs-comment">// 遍历 Author 注解，获取 name 属性值</span><br>        <span class="hljs-keyword">for</span> (Author author : authorArray) &#123;<br>            System.out.println(<span class="hljs-string">&quot;Author: &quot;</span> + author.name());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
                 
               </div>
             
@@ -364,9 +370,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Java-8/" class="print-no-link">#Java 8</a>
+        <a href="/tags/Java-Annotations/" class="print-no-link">#Java Annotations</a>
       
-        <a href="/tags/Interface/" class="print-no-link">#Interface</a>
+        <a href="/tags/Java-8/" class="print-no-link">#Java 8</a>
       
     </div>
   
@@ -378,8 +384,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Default Methods In Interface</div>
-      <div>https://stein283036.github.io/2024/04/15/Default-Methods-In-Interface/</div>
+      <div>Java 8 Repeating Annotations</div>
+      <div>https://stein283036.github.io/2024/04/15/Java-8-Repeating-Annotations/</div>
     </div>
     <div class="license-meta">
       
@@ -432,8 +438,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/15/Java-Objects/" title="Java Objects">
-                        <span class="hidden-mobile">Java Objects</span>
+                      <a href="/2024/04/15/Default-And-Static-Methods-In-Interface/" title="Default And Static Methods In Interface">
+                        <span class="hidden-mobile">Default And Static Methods In Interface</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
