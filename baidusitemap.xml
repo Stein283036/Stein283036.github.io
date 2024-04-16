@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://stein283036.github.io/2024/04/15/Java-8-Functional-Interfaces/</loc>
-    <lastmod>2024-04-15</lastmod>
+    <loc>https://stein283036.github.io/2024/04/16/Java-8-Method-References/</loc>
+    <lastmod>2024-04-16</lastmod>
   </url>
   <url>
     <loc>https://stein283036.github.io/2024/04/15/Java-8-Lambda-Expressions/</loc>
+    <lastmod>2024-04-16</lastmod>
+  </url>
+  <url>
+    <loc>https://stein283036.github.io/2024/04/15/Java-8-Functional-Interfaces/</loc>
     <lastmod>2024-04-15</lastmod>
   </url>
   <url>

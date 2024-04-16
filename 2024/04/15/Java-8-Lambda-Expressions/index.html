@@ -24,7 +24,7 @@
 <meta property="og:description" content="IntroductionLambda 表达式是 Java 8 中引入的一个重要特性，它使得代码更加简洁、清晰和易于阅读。Lambda 表达式可以理解为一种匿名函数，它可以作为方法参数传递，也可以作为方法返回值返回。简单来说，Lambda 表达式就是对一个函数式接口中唯一抽象方法的实现。 Lambda 表达式的基本语法1(parameters) -&gt; expression  或 1(param">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-15T08:28:44.000Z">
-<meta property="article:modified_time" content="2024-04-15T09:00:26.171Z">
+<meta property="article:modified_time" content="2024-04-16T01:22:46.290Z">
 <meta property="article:author" content="倪京龙">
 <meta property="article:tag" content="Java 8">
 <meta name="twitter:card" content="summary_large_image">
@@ -261,7 +261,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          490 字
+          491 字
         
       </span>
     
@@ -322,7 +322,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年4月15日 下午
+                    本文最后更新于 2024年4月16日 上午
                   
                 
               </p>
@@ -348,7 +348,7 @@
 <h3 id="作为方法返回值返回"><a href="#作为方法返回值返回" class="headerlink" title="作为方法返回值返回"></a>作为方法返回值返回</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.function.BinaryOperator;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LambdaExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">// 返回 Lambda 表达式作为方法的结果</span><br>        BinaryOperator&lt;Integer&gt; add = (a, b) -&gt; a + b;<br>        System.out.println(<span class="hljs-string">&quot;Sum: &quot;</span> + add.apply(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>));<br><br>        <span class="hljs-comment">// 返回方法引用作为方法的结果（与 Lambda 表达式等效）</span><br>        BinaryOperator&lt;Integer&gt; subtract = Math::subtractExact;<br>        System.out.println(<span class="hljs-string">&quot;Difference: &quot;</span> + subtract.apply(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="Lambda-Scope"><a href="#Lambda-Scope" class="headerlink" title="Lambda Scope"></a>Lambda Scope</h2><p>在 Lambda 作用域中访问外部变量和再匿名内部类中类似，既可以访问 final 变量也可以访问实例和静态字段。</p>
-<p>但与匿名内部类不同的是 外部变量比如下面的 num 不一定必须是 final 修饰 但是 num 必须隐式是 final 即不可修改的</p>
+<p>但与匿名内部类不同的是 外部变量比如下面的 num 不一定必须是 final 修饰 但是 num 必须隐式是 final 即不可修改的。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// final int num = 1;</span><br><span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br><span class="hljs-comment">// int finalNum = num;</span><br><span class="hljs-comment">// Variable used in lambda expression should be final or effectively final</span><br>Converter&lt;Integer, String&gt; converter = (from -&gt; String.valueOf(from + num));<br><span class="hljs-type">String</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> converter.convert(<span class="hljs-number">2</span>);<br>System.out.println(<span class="hljs-string">&quot;s1 = &quot;</span> + s1);<br><span class="hljs-comment">// num = 3;</span><br></code></pre></td></tr></table></figure>
 
                 
@@ -414,7 +414,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年4月15日</div>
+          <div>2024年4月16日</div>
         </div>
       
       
