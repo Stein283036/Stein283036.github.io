@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://stein283036.github.io/2024/04/17/%E7%94%9F%E6%B4%BB%E4%B9%A0%E6%83%AF/</loc>
+    
+    <lastmod>2024-04-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://stein283036.github.io/2024/04/16/Java-8-Method-References/</loc>
     
     <lastmod>2024-04-16</lastmod>
@@ -445,7 +454,7 @@
 
   <url>
     <loc>https://stein283036.github.io/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -453,112 +462,119 @@
   
   <url>
     <loc>https://stein283036.github.io/tags/ES-6/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/JavaScript-Function/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/JavaScript-Prototype/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/JavaScript-Constructor/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/JavaScript-Object/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/JavaScript-this/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/JavaScript-for-in/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/JavaScript-Inheritance/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/Schedule/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/Vocabulary/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/Java-Generics/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/Java-Annotations/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/Java-8/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/Java-Utils/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/Java-Interfaces/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/tags/Java-Date-Time/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://stein283036.github.io/tags/Health/</loc>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -567,28 +583,28 @@
   
   <url>
     <loc>https://stein283036.github.io/categories/Java/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/categories/JavaScript/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/categories/Life/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://stein283036.github.io/categories/English/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
