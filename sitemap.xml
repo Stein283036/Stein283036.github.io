@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://stein283036.github.io/2024/04/28/%E7%BD%91%E7%90%83/</loc>
+    
+    <lastmod>2024-04-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://stein283036.github.io/2024/03/06/JavaScript-Prototype/</loc>
     
     <lastmod>2024-04-23</lastmod>
@@ -579,6 +588,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://stein283036.github.io/tags/Tennis/</loc>
+    <lastmod>2024-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -604,6 +620,13 @@
   
   <url>
     <loc>https://stein283036.github.io/categories/English/</loc>
+    <lastmod>2024-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://stein283036.github.io/categories/Sports/</loc>
     <lastmod>2024-04-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
