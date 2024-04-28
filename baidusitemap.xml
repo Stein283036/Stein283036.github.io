@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://stein283036.github.io/2024/04/17/%E7%94%9F%E6%B4%BB%E4%B9%A0%E6%83%AF/</loc>
-    <lastmod>2024-04-17</lastmod>
+    <loc>https://stein283036.github.io/2024/03/06/JavaScript-Prototype/</loc>
+    <lastmod>2024-04-23</lastmod>
   </url>
   <url>
     <loc>https://stein283036.github.io/2024/04/16/Java-8-Method-References/</loc>
-    <lastmod>2024-04-16</lastmod>
+    <lastmod>2024-04-17</lastmod>
+  </url>
+  <url>
+    <loc>https://stein283036.github.io/2024/04/17/%E7%94%9F%E6%B4%BB%E4%B9%A0%E6%83%AF/</loc>
+    <lastmod>2024-04-17</lastmod>
   </url>
   <url>
     <loc>https://stein283036.github.io/2024/04/15/Java-8-Lambda-Expressions/</loc>
@@ -170,10 +174,6 @@
   </url>
   <url>
     <loc>https://stein283036.github.io/2024/03/06/JavaScript-Constructor-Prototype-Pattern/</loc>
-    <lastmod>2024-03-06</lastmod>
-  </url>
-  <url>
-    <loc>https://stein283036.github.io/2024/03/06/JavaScript-Prototype/</loc>
     <lastmod>2024-03-06</lastmod>
   </url>
   <url>

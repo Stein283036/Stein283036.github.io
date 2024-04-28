@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://www.javascripttutorial.net/wp-content/uploads/2022/01/JS-prototype-two-person-objects.svg">
 <meta property="og:image" content="https://www.javascripttutorial.net/wp-content/uploads/2022/01/JS-prototype-object-with-method.svg">
 <meta property="article:published_time" content="2024-03-06T12:16:27.000Z">
-<meta property="article:modified_time" content="2024-03-06T12:25:41.568Z">
+<meta property="article:modified_time" content="2024-04-23T00:48:38.527Z">
 <meta property="article:author" content="倪京龙">
 <meta property="article:tag" content="JavaScript Prototype">
 <meta name="twitter:card" content="summary_large_image">
@@ -333,7 +333,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年3月6日 晚上
+                    本文最后更新于 2024年4月23日 早上
                   
                 
               </p>
@@ -426,7 +426,7 @@
 
 <p>当在对象中定义方法时，该方法仅对该对象可用。默认情况下它不能与其他对象共享。</p>
 <h2 id="Getting-prototype-linkage"><a href="#Getting-prototype-linkage" class="headerlink" title="Getting prototype linkage"></a>Getting prototype linkage</h2><p><code>__proto__</code> 发音为 dunder proto。 <code>__proto__</code> 是 Object.prototype 对象的访问器属性。它公开了访问它的对象的内部原型链接（[[Prototype]]）。</p>
-<p><code>__proto__ </code> 已在 ES6 中标准化，以确保与 Web 浏览器的兼容性。但是，将来可能会弃用它，转而使用 Object.getPrototypeOf()。因此，永远不应该在生产代码中使用 <code>__proto__</code>。</p>
+<p><code>__proto__</code> 已在 ES6 中标准化，以确保与 Web 浏览器的兼容性。但是，将来可能会弃用它，转而使用 Object.getPrototypeOf()。因此，永远不应该在生产代码中使用 <code>__proto__</code>。</p>
 <p><code>p1.__proto__</code> 公开引用 Person.prototype 对象的 [[Prototype]]。</p>
 <p>同样，<code>p2.__proto__</code> 也引用与 <code>p1.__proto__</code> 相同的对象：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p1.<span class="hljs-property">__proto__</span> === <span class="hljs-title class_">Person</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>) <span class="hljs-comment">// true</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p1.<span class="hljs-property">__proto__</span> === p2.<span class="hljs-property">__proto__</span>) <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
@@ -514,7 +514,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年3月6日</div>
+          <div>2024年4月23日</div>
         </div>
       
       
